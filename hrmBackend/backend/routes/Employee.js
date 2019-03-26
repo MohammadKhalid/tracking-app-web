@@ -98,6 +98,7 @@ router.post('/login', async (req, res) => {
         password: joi.required()
 
     }
+    
     const { error } = joi.validate(req.body, schema);
     if (error) return res.send({ 'message': 'Failed', 'err': error.details[0].message,'code': 500 });
 
