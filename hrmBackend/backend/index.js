@@ -30,5 +30,6 @@ app.get('/test',(req,res)=>{
 
 app.use('/api/admin', require('./routes/admin'))
 app.use('/api/employee', require('./routes/Employee'))
+app.use('/api/task', require('./routes/Tasks'))
 app.listen(port, () => console.log(`server listening on port ${port}`));
 

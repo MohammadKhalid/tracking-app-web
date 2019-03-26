@@ -22,11 +22,16 @@ router.post('/login', async (req, res) => {
             attributes:['Firstname','Lastname',['Id','user_id'],'Email','Password'],
             include:[{
                 attributes:[['Role_name','Role'],['Id','Role_id']],
-                model: Roles
+                model: Roles,
+                where: {
+                    Role_name: 'admin'
+                }
             }],
             raw: true, 
             // limit: 1, 
-            where: { Email: req.body.email } 
+            where: { 
+                Email: req.body.email 
+            } 
         });
         if (User.length <= 0) return res.send({ 'message': 'failed', err: 'Invalid email or password','code': 500 });
         User = User.pop();

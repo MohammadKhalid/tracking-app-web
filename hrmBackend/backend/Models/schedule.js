@@ -9,14 +9,18 @@ const schedule = db.define('tbl_schedule', {
         autoIncrement: true
     },
     Assignto: {
+        type: sequelize.INTEGER,
+        allowNull: false
+    },
+    title: {
         type: sequelize.STRING,
         allowNull: false
     },
-    tittleDiscription: {
+    description: {
         type: sequelize.STRING,
         allowNull: false
     },
-    Statuse: {
+    Status: {
         type: sequelize.STRING
 
     },
@@ -32,12 +36,13 @@ const schedule = db.define('tbl_schedule', {
         type: sequelize.INTEGER
     },
     isActive: {
-        type: sequelize.STRING
+        type: sequelize.INTEGER
     }
 })
 
 schedule.belongsTo(user, {foreignKey:'created_by'})
 schedule.belongsTo(user, {foreignKey:'updated_by'})
+schedule.belongsTo(user, {foreignKey:'Assignto'})
 
 schedule.sync({ force: false  });
 
