@@ -1,15 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatButtonModule,MatGridListModule, MatCheckboxModule, MatInputModule,MatIconModule,MatFormFieldModule, MatToolbarModule,
-   
+import {
+  MatButtonModule,
+  MatGridListModule,
+  MatCheckboxModule,
+  MatInputModule,
+  MatIconModule,
+  MatFormFieldModule,
+  MatToolbarModule,
   MatCardModule,
-  
   MatDialogModule,
   MatTableModule,
   MatMenuModule,
-  
-  MatProgressSpinnerModule } from '@angular/material';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+  MatSidenavModule,
+
+  MatProgressSpinnerModule
+} from '@angular/material';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -17,13 +24,14 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
   declarations: [],
   imports: [
     CommonModule,
+    MatSidenavModule,
     MatInputModule,
     MatGridListModule,
     FormsModule,
     MatIconModule,
     ReactiveFormsModule,
     MatFormFieldModule, MatToolbarModule,
-    MatButtonModule, 
+    MatButtonModule,
     MatCardModule,
     MatInputModule,
     MatDialogModule,
@@ -35,9 +43,11 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
   exports: [
     CommonModule,
     MatInputModule,
+    MatSidenavModule,
+
     MatIconModule,
     MatFormFieldModule, MatToolbarModule,
-    MatButtonModule, 
+    MatButtonModule,
     MatCardModule,
     MatInputModule,
     MatDialogModule,

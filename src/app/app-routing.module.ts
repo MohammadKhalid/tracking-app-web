@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdminloginComponent } from './admin/adminlogin/adminlogin.component';
 import { AdminpanelComponent } from './admin/adminpanel/adminpanel.component';
 import { NotfoundComponent } from './admin/notfound/notfound.component';
+import { AdduserComponent } from './admin/adminpanel/adduser/adduser.component';
 
 const routes: Routes = [
 
@@ -12,7 +13,13 @@ const routes: Routes = [
   },
   {
     path :'adminpanel',
-    component:AdminpanelComponent
+    component:AdminpanelComponent,
+    children : [
+      {
+        path:'adduser',
+        component:AdduserComponent
+      }
+    ]
   },
   {
     path:"**",

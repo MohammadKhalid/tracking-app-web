@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AdminservicesService } from './admin/adminAuthservice/adminservices.service';
 import { ToastrService } from 'ngx-toastr';
 import { ToastrModule } from 'ngx-toastr';
+import { AdduserComponent } from './admin/adminpanel/adduser/adduser.component';
 
 
 
@@ -27,7 +28,8 @@ import { ToastrModule } from 'ngx-toastr';
     AppComponent,
     AdminloginComponent,
     AdminpanelComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    AdduserComponent
   ],
   imports: [
     BrowserModule,

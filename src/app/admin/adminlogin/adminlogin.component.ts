@@ -39,7 +39,7 @@ export class AdminloginComponent implements OnInit {
           console.log(res.message);
 
         }else {
-          this.toaster.error('kindly check your email and password')
+          this.toaster.error('kindly check your email and password');
         }
 
         console.log(res);

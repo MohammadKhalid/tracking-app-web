@@ -28,6 +28,7 @@ router.post('/login', async (req, res) => {
             // limit: 1, 
             where: { Email: req.body.email } 
         });
+
         if (User.length <= 0) return res.send({ 'message': 'failed', err: 'Invalid email or password','code': 500 });
         User = User.pop();
         const isPassword = await bcrypt.compare(req.body.password, User.Password);
