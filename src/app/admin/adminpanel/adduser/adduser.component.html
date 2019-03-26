@@ -11,58 +11,56 @@
     <h4 class="card-title mt-3 text-center">Create Account</h4>
    
     
-    <form>
+    <form [formGroup]="addUserform" (ngSubmit)= "userLogin()" >
     <div class="form-group input-group">
       <div class="input-group-prepend">
           <span class="input-group-text"> <i class="fa fa-user"></i> </span>
        </div>
-          <input name="" class="form-control" placeholder="Full name" type="text">
+          <input name="" class="form-control" placeholder="First Name" formControlName="firstname" type="text">
+      </div> <!-- form-group// -->
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+       </div>
+          <input name="" class="form-control" placeholder="Last Name" type="email"  formControlName="lastname">
       </div> <!-- form-group// -->
       <div class="form-group input-group">
         <div class="input-group-prepend">
           <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
-       </div>
-          <input name="" class="form-control" placeholder="Email address" type="email">
+      </div>
+     
+        <input name="" class="form-control" placeholder="Email Address" type="text"  formControlName="email">
       </div> <!-- form-group// -->
+    
+     <!-- form-group end.// -->
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+      </div>
+          <input class="form-control" placeholder="Create password" type="password"  formControlName="password">
+      </div> <!-- form-group// -->
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fa fa-vcard"></i> </span>
+      </div>
+          <input class="form-control" placeholder="CNIC" type="number"  formControlName="cnic">
+      </div> <!-- form-group// -->  
       <div class="form-group input-group">
         <div class="input-group-prepend">
           <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
       </div>
-      <select class="custom-select" style="max-width: 120px;">
-          <option selected="">+971</option>
-          <option value="1">+972</option>
-          <option value="2">+198</option>
-          <option value="3">+701</option>
-      </select>
-        <input name="" class="form-control" placeholder="Phone number" type="text">
-      </div> <!-- form-group// -->
+          <input class="form-control" placeholder="Phone " type="number"  formControlName="phone">
+      </div> <!-- form-group// -->  
+      
       <div class="form-group input-group">
         <div class="input-group-prepend">
-          <span class="input-group-text"> <i class="fa fa-building"></i> </span>
+          <span class="input-group-text"> <i class=" fa fa-address-card" aria-hidden="true"></i> </span>
       </div>
-      <select class="form-control">
-        <option selected=""> Select job type</option>
-        <option>Designer</option>
-        <option>Manager</option>
-        <option>Accaunting</option>
-      </select>
-    </div> <!-- form-group end.// -->
-      <div class="form-group input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-      </div>
-          <input class="form-control" placeholder="Create password" type="password">
-      </div> <!-- form-group// -->
-      <div class="form-group input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-      </div>
-          <input class="form-control" placeholder="Repeat password" type="password">
-      </div> <!-- form-group// -->                                      
+          <input class="form-control" placeholder="Address" type="text"  formControlName="address">
+      </div> <!-- form-group// -->  
       <div class="form-group">
           <button type="submit" class="btn btn-primary btn-block"> Create Account  </button>
       </div> <!-- form-group// -->      
-      <p class="text-center">Have an account? <a href="">Log In</a> </p>                                                                 
   </form>
   </article>
   </div> <!-- card.// -->

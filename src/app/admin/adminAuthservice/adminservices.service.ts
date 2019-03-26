@@ -20,5 +20,9 @@ Adminlogin(user){
    
 }
 
+adduser(payload) {
+  return this.http.post(this.apiUrl +'employee/addemployee',payload)
+}
+
 
 }

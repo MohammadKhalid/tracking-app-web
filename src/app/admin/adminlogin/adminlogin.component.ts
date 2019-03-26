@@ -4,6 +4,8 @@ import { AdminservicesService } from '../adminAuthservice/adminservices.service'
 import { Router } from '@angular/router';
 import {User} from '../adminInterface/user'
 import { ToastrService } from 'ngx-toastr';
+import * as JWT from 'jwt-decode';
+
 
 
 
@@ -14,20 +16,23 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./adminlogin.component.css']
 })
 export class AdminloginComponent implements OnInit {
-
+   token =localStorage.getItem('token');
+   
 
   loginForm: FormGroup;
   isSubmitted: false;
   constructor(private toaster : ToastrService ,  private authService: AdminservicesService, private router: Router, private Formbuilder: FormBuilder) { }
 
+  
   ngOnInit() {
     this.loginForm = this.Formbuilder.group({
       email: ['', Validators.required],
       password: ['', Validators.required]
     })
+    console.log(JWT(this.token));
   }
 
-
+   
   login() {
     
     this.authService.Adminlogin(this.loginForm.value)

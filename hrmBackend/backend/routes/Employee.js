@@ -12,13 +12,14 @@ router.post('/addEmployee', async (req, res) => {
 
     const schema = {
         email: joi.string().required().email(),
-        password: joi.required().length(6),
+        password: joi.required(),
         firstname: joi.required(),
         lastname: joi.required(),
         cnic: joi.required(),
         phone: joi.required(),
         address: joi.required(),
         role: joi.required(),
+        adminId : joi.required()
 
     }
     const { error } = joi.validate(req.body, schema);
@@ -36,8 +37,8 @@ router.post('/addEmployee', async (req, res) => {
             Phone: req.body.phone,
             Address: req.body.address,
             IsActive: "1",
-            Created_by: 1,
-            Updated_by: 1
+            Created_by: req.body.adminId,
+            Updated_by: req.body.adminId
         })
 
         if (!user) return res.send({ 'message': 'Failed', 'err': "error inserting Employee",'code': 500 });
