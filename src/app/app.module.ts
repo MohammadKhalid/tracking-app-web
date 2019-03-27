@@ -14,6 +14,7 @@ import { AdminservicesService } from './admin/adminAuthservice/adminservices.ser
 import { ToastrService } from 'ngx-toastr';
 import { ToastrModule } from 'ngx-toastr';
 import { AdduserComponent } from './admin/adminpanel/adduser/adduser.component';
+import { AlluserComponent } from './admin/adminpanel/alluser/alluser.component';
 
 
 
@@ -29,7 +30,8 @@ import { AdduserComponent } from './admin/adminpanel/adduser/adduser.component';
     AdminloginComponent,
     AdminpanelComponent,
     NotfoundComponent,
-    AdduserComponent
+    AdduserComponent,
+    AlluserComponent
   ],
   imports: [
     BrowserModule,

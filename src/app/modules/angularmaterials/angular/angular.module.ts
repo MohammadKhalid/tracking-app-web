@@ -13,6 +13,8 @@ import {
   MatTableModule,
   MatMenuModule,
   MatSidenavModule,
+  MatPaginatorModule,
+  
 
   MatProgressSpinnerModule
 } from '@angular/material';
@@ -25,6 +27,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     MatSidenavModule,
+    MatPaginatorModule,
     MatInputModule,
     MatGridListModule,
     FormsModule,
@@ -38,15 +41,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatTableModule,
     MatMenuModule,
     MatIconModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    
   ],
   exports: [
     CommonModule,
     MatInputModule,
     MatSidenavModule,
-
     MatIconModule,
-    MatFormFieldModule, MatToolbarModule,
+    MatFormFieldModule, 
+    MatToolbarModule,
     MatButtonModule,
     MatCardModule,
     MatInputModule,
@@ -54,7 +58,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatTableModule,
     MatMenuModule,
     MatIconModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatPaginatorModule
+    
   ]
 })
 export class AngularModule { }

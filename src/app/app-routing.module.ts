@@ -4,6 +4,7 @@ import { AdminloginComponent } from './admin/adminlogin/adminlogin.component';
 import { AdminpanelComponent } from './admin/adminpanel/adminpanel.component';
 import { NotfoundComponent } from './admin/notfound/notfound.component';
 import { AdduserComponent } from './admin/adminpanel/adduser/adduser.component';
+import { AlluserComponent } from './admin/adminpanel/alluser/alluser.component';
 
 const routes: Routes = [
 
@@ -18,6 +19,10 @@ const routes: Routes = [
       {
         path:'adduser',
         component:AdduserComponent
+      },
+      {
+        path:'alluser',
+        component:AlluserComponent
       }
     ]
   },
