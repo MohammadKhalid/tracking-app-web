@@ -26,7 +26,7 @@ const schedule = db.define('tbl_schedule', {
     },
 
     date: {
-        type: sequelize.DATE
+        type: sequelize.STRING
     },
 
     created_by: {

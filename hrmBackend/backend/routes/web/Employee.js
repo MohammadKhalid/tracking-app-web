@@ -1,12 +1,12 @@
 const express = require('express');
-const users = require('../Models/Admin');
-const roles = require('../Models/roles');
-const userRole = require('../Models/userRole');
+const users = require('../../Models/Admin');
+const roles = require('../../Models/roles');
+const userRole = require('../../Models/userRole');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const joi = require('joi');
 const jwt = require('jsonwebtoken');
-const auth = require('../auth/authentication')
+const auth = require('../../auth/authentication')
 
 router.post('/addEmployee', async (req, res) => {
 

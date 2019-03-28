@@ -28,8 +28,18 @@ app.get('/test',(req,res)=>{
     res.send('hello World')
 })
 
-app.use('/api/admin', require('./routes/admin'))
-app.use('/api/employee', require('./routes/Employee'))
-app.use('/api/task', require('./routes/Tasks'))
+// ----------- web apis
+app.use('/api/web/admin', require('./routes/web/admin'))
+app.use('/api/web/employee', require('./routes/web/Employee'))
+app.use('/api/web/task', require('./routes/web/Tasks'))
+
+
+// ------------ mobile apis
+app.use('/api/mobile/admin', require('./routes/mobile/admin'))
+app.use('/api/mobile/employee', require('./routes/mobile/Employee'))
+app.use('/api/mobile/task', require('./routes/mobile/Tasks'))
+
+
+
 app.listen(port, () => console.log(`server listening on port ${port}`));
 

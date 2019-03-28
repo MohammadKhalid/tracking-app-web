@@ -1,11 +1,13 @@
-const users = require('../Models/Admin')
-const schedule = require('../Models/schedule')
+const users = require('../../Models/Admin')
+const schedule = require('../../Models/schedule')
 const express = require('express');
 const router = express.Router();
 const joi = require('joi');
-const auth = require('../auth/authentication')
+const auth = require('../../auth/authentication')
+const Sequelize = require('sequelize')
+const Op = Sequelize.Op
 
-router.post('/assignTask', async (req, res) => {
+router.post('/assignTask', auth,async (req, res) => {
     try {
 
         const schema = {
@@ -17,7 +19,7 @@ router.post('/assignTask', async (req, res) => {
         }
 
         const { error } = joi.validate(req.body, schema);
-        if (error) return res.send({ 'message': 'Failed', 'err': error.details[0].message, 'code': 500 });
+        if (error) return res.send({ 'message': error.details[0].message, 'code': 500 });
 
         try {
             let userSchedule = await schedule.create({
@@ -55,58 +57,38 @@ router.post('/assignTask', async (req, res) => {
 })
 
 
-router.get('/userTasks/:id/:status',auth, async (req, res) => {
+router.get('/viewEmployeeTask/:dateFrom/:dateTo/:employeeId/:status',async (req,res)=>{
     try {
-        let userTasks = await schedule.findAll({
+        let {employeeId, dateFrom,dateTo,status} = req.params
+        let userSchedule = await schedule.findAll({
+            attributes: ['title','description','Status','date',['Id','Task_id']],
+            include: [{
+                attributes: ['Firstname','Lastname',['Id','user_id']],
+                model: users
+            }],
             where: {
-                Assignto: req.params.id,
-                Status: req.params.status
-            }
+                Assignto: employeeId,
+                date: {
+                    [Op.between]: [dateFrom,dateTo]
+                },
+            },
+            raw: true
         })
-
-        if (userTasks.length > 0) {
+        if(userSchedule.length >0 ){
             res.send({
                 'message': 'success',
-                'err': userTasks,
+                'data': userSchedule,
                 "code": 200
             })
-        } else {
+        }else{
             res.send({
-                'message': 'No task found',
-                'err': userTasks,
+                'message': 'No task Found for this user',
                 "code": 200
             })
         }
     } catch (error) {
         res.send({
-            'message': 'api failed',
-            'err': err,
-            "code": 500
-        })
-    }
-})
-
-
-router.get('/markComplete/:userid/:taskid',auth, async (req, res) => {
-    try {
-        let userTasks = await schedule.update({
-            Status: 'Completed'
-        },
-        {
-            where: {
-                Id: req.params.taskid,
-                assignTo: req.params.userid
-            }
-        })
-        res.send({
-            'message': 'Task Updated',
-            'err': userTasks,
-            "code": 200
-        })
-    } catch (error) {
-        res.send({
-            'message': 'Failed to update',
-            'err': err,
+            'message': 'Failed to fetch task',
             "code": 500
         })
     }
