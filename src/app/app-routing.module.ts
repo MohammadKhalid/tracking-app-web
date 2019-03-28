@@ -5,6 +5,7 @@ import { AdminpanelComponent } from './admin/adminpanel/adminpanel.component';
 import { NotfoundComponent } from './admin/notfound/notfound.component';
 import { AdduserComponent } from './admin/adminpanel/adduser/adduser.component';
 import { AlluserComponent } from './admin/adminpanel/alluser/alluser.component';
+import { AssignScheduleComponent } from './admin/adminpanel/schedules/assign-schedule/assign-schedule.component';
 
 const routes: Routes = [
 
@@ -23,6 +24,10 @@ const routes: Routes = [
       {
         path:'alluser',
         component:AlluserComponent
+      },
+      {
+        path: 'assignschedule',
+        component:AssignScheduleComponent
       }
     ]
   },

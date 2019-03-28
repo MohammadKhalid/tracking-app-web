@@ -15,6 +15,7 @@ import { ToastrService } from 'ngx-toastr';
 import { ToastrModule } from 'ngx-toastr';
 import { AdduserComponent } from './admin/adminpanel/adduser/adduser.component';
 import { AlluserComponent } from './admin/adminpanel/alluser/alluser.component';
+import { AssignScheduleComponent } from './admin/adminpanel/schedules/assign-schedule/assign-schedule.component';
 
 
 
@@ -31,7 +32,8 @@ import { AlluserComponent } from './admin/adminpanel/alluser/alluser.component';
     AdminpanelComponent,
     NotfoundComponent,
     AdduserComponent,
-    AlluserComponent
+    AlluserComponent,
+    AssignScheduleComponent
   ],
   imports: [
     BrowserModule,

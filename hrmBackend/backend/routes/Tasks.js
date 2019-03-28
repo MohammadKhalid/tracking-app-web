@@ -5,7 +5,7 @@ const router = express.Router();
 const joi = require('joi');
 const auth = require('../auth/authentication')
 
-router.post('/assignTask', async (req, res) => {
+router.post('/assignTask',auth, async (req, res) => {
     try {
 
         const schema = {
@@ -17,7 +17,7 @@ router.post('/assignTask', async (req, res) => {
         }
 
         const { error } = joi.validate(req.body, schema);
-        if (error) return res.send({ 'message': 'Failed', 'err': error.details[0].message, 'code': 500 });
+        if (error) return res.send({ 'message':  error.details[0].message, 'code': 500 });
 
         try {
             let userSchedule = await schedule.create({

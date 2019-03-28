@@ -224,12 +224,21 @@
      
       
         <li class="nav-item">
-          <a class="nav-link" href="pages/icons/font-awesome.html">
-            <i class="menu-icon mdi mdi-sticker"></i>
+          <a class="nav-link" data-toggle="collapse" href="#u-basic" aria-expanded="false" aria-controls="ui-basic">
+            <i class="menu-icon mdi mdi-content-copy"></i>
             <span class="menu-title">Shedule</span>
+            <i class="menu-arrow"></i>
           </a>
+          <div class="collapse" id="u-basic">
+            <ul class="nav flex-column sub-menu">
+              <li class="nav-item">
+                <a class="nav-link" [routerLink]="['assignschedule']">Shedule Assign </a>
+              </li>
+            </ul>
+          </div>
         </li>
       
+     
       </ul>
     </nav>
     <!-- partial -->
