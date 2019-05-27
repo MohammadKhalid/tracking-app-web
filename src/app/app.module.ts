@@ -1,52 +1,35 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { AdminloginComponent } from './admin/adminlogin/adminlogin.component';
-import { AdminpanelComponent } from './admin/adminpanel/adminpanel.component';
-import { NotfoundComponent } from './admin/notfound/notfound.component';
-import { AngularModule } from './modules/angularmaterials/angular/angular.module';
-import { BrowserAnimationsModule} from '@angular/platform-browser/animations'
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { AdminservicesService } from './admin/adminAuthservice/adminservices.service';
-import { ToastrService } from 'ngx-toastr';
-import { ToastrModule } from 'ngx-toastr';
-import { AdduserComponent } from './admin/adminpanel/adduser/adduser.component';
-import { AlluserComponent } from './admin/adminpanel/alluser/alluser.component';
-import { AssignScheduleComponent } from './admin/adminpanel/schedules/assign-schedule/assign-schedule.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { AppRoutingModule } from './app-routing.module';
 
-
-
-
-
-
-
+import { AppComponent } from './app.component';
+import { HomeComponent } from './components/home/home.component';
+import { ButtonModule } from 'primeng/button';
+import { StepsModule } from 'primeng/steps';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    AdminloginComponent,
-    AdminpanelComponent,
-    NotfoundComponent,
-    AdduserComponent,
-    AlluserComponent,
-    AssignScheduleComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule,
-    AngularModule,
-    BrowserAnimationsModule,
     ReactiveFormsModule,
+    AppRoutingModule,
     HttpClientModule,
-    ToastrModule.forRoot()
-    
+    BrowserAnimationsModule,
+    ButtonModule,
+    StepsModule,
   ],
-  providers: [AdminservicesService,ToastrService],
+  providers: [
+    { provide: LocationStrategy, useClass: HashLocationStrategy }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
