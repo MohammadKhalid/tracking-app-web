@@ -5,10 +5,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
+import { ButtonModule } from 'primeng/button';
+import {FileUploadModule} from 'primeng/fileupload';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
-import { ButtonModule } from 'primeng/button';
 import { StepsModule } from 'primeng/steps';
 
 
@@ -26,6 +27,7 @@ import { StepsModule } from 'primeng/steps';
     BrowserAnimationsModule,
     ButtonModule,
     StepsModule,
+    FileUploadModule
   ],
   providers: [
     { provide: LocationStrategy, useClass: HashLocationStrategy }
