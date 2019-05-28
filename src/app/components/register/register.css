@@ -1,0 +1,79 @@
+
+ .saturate { filter: saturate(3); }
+ .grayscale { filter: grayscale(100%); }
+ .contrast { filter: contrast(160%); }
+ .brightness { filter: brightness(0.25); }
+ .blur { filter: blur(3px); }
+ .invert { filter: invert(100%); }
+ .sepia { filter: sepia(100%); }
+ .huerotate { filter: hue-rotate(180deg); }
+ .rss.opacity { filter: opacity(50%); }
+ .card-signin {
+    border: 0;
+    border-radius: 1rem;
+    background: #ffffff;
+    box-shadow: 0 0.7rem 2rem 0 rgba(0, 0, 0, 0.5);
+  } .huerotate { filter: hue-rotate(180deg); }
+  .rss.opacity { filter: opacity(50%); }
+  .card-signins {
+     border: 0;
+     border-radius: 1rem;
+     box-shadow: 0 0.6rem 1.6rem 0 rgba(0, 0, 0, 0.3);
+   }
+  
+  .card-signin .card-title {
+    margin-bottom: 2rem;
+    font-weight: 300;
+    font-size: 1.5rem;
+  }
+  .card-signins .card-title {
+    margin-bottom: 2rem;
+    font-weight: 300;
+    font-size: 1.5rem;
+  }
+  .div1{
+    margin-top:10px;
+  }
+  .card-signin .card-body {
+    padding: 2rem;
+  }
+  .card-signins .card-bodys {
+    padding: 2rem;
+  }
+  
+  .form-signin {
+    width: 100%;
+  }
+  
+  .form-signin .btn {
+    font-size: 80%;
+    border-radius: 5rem;
+    letter-spacing: .1rem;
+    font-weight: bold;
+    padding: 1rem;
+    transition: all 0.2s;
+  }
+  
+  .form-label-group {
+    position: relative;
+    margin-bottom: 1rem;
+  }
+
+  .form-control {
+    display: block;
+    width: 100%;
+    margin-right: 34px;
+    padding: .375rem .75rem;
+    font-size: 0.7rem;
+    line-height: 0;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+input {
+  color: #ffb536;
+}

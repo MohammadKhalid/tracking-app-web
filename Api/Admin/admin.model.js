@@ -19,7 +19,7 @@ const Admin = db.define('admin', {
         allowNull: false
     },
     phone: {
-        type: sequelize.INTEGER,
+        type: sequelize.INTEGER(20),
     },
     firstName: {
         type: sequelize.STRING,

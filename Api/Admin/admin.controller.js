@@ -50,9 +50,10 @@ module.exports = {
                 }
             })
 
-            if(checkAdmin > 0) return res.json({ code: 500, data: 'User already exist.', message: '' });
+            if(checkAdmin > 0) return res.json({ code: 500, data: '', message: 'User already exist.' });
 
             let passHash = await bcrypt.hash(password, 10)
+            console.log();
             let admin = await adminModel.create({
                 email: email,
                 password: passHash,

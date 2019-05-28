@@ -1,13 +1,15 @@
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { HomeComponent } from './components/home/home.component';
+// import { HomeComponent } from './components/home/home.component';
+import { Part15Component } from './components/landingpage/part15/part15.component';
+
 
 @NgModule({
     imports: [
         RouterModule.forRoot([
-            {path: '', component: HomeComponent},
-            // {path: 'setup', loadChildren: './components/setup/setup.module#SetupModule'},
-            // {path: 'theming', loadChildren: './components/theming/theming.module#ThemingModule'},
+            {path: '', component: Part15Component},
+             {path: 'login', loadChildren: './components/login/login.module#loginModule'},
+             {path: 'register', loadChildren: './components/register/register.module#registerModule'},
             // {path: 'icons', loadChildren: './components/icons/icons.module#IconsModule'},
             // {path: 'accordion', loadChildren: './components/accordion/accordiondemo.module#AccordionDemoModule'},
             // {path: 'autocomplete', loadChildren: './components/autocomplete/autocompletedemo.module#AutoCompleteDemoModule'},
@@ -16,7 +18,7 @@ import { HomeComponent } from './components/home/home.component';
             // {path: 'button', loadChildren: './components/button/buttondemo.module#ButtonDemoModule'},
             // {path: 'calendar', loadChildren: './components/calendar/calendardemo.module#CalendarDemoModule'},
             // {path: 'captcha', loadChildren: './components/captcha/captchademo.module#CaptchaDemoModule'},
-            // {path: 'card', loadChildren: './components/card/carddemo.module#CardDemoModule'},
+             {path: 'card', loadChildren: './components/card/carddemo.module#CardDemoModule'},
             // {path: 'carousel', loadChildren: './components/carousel/carouseldemo.module#CarouselDemoModule'},
             // {path: 'chart', loadChildren: './components/chart/chartdemo.module#ChartDemoModule'},
             // {path: 'checkbox', loadChildren: './components/checkbox/checkboxdemo.module#CheckboxDemoModule'},

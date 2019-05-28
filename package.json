@@ -41,7 +41,8 @@
     "nodemailer": "^5.1.1",
     "sequelize": "^4.42.0",
     "sequelize-msnodesqlv8": "^0.2.6-beta.8",
-    "stripe": "^6.20.1"
+    "stripe": "^6.20.1",
+    "ngx-toastr": "^10.0.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.13.0",
