@@ -20,4 +20,7 @@ router.post('/create',[
         check('lastname').not().isEmpty(),
     ],userController.create)
 
+router.get('/viewAllEmployee/:adminId',userController.viewAllEmployee);
+router.put('/editEmployee/:employeeId',userController.editEmployee);
+
 module.exports = router;
