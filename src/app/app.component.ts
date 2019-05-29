@@ -1,41 +1,54 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { EndpointsService } from './api/endpoints.service';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
 
     menuActive: boolean;
-
     activeMenuId: string;
-
     darkDemoStyle: HTMLStyleElement;
-
     routes: Array<string> = [];
-
     filteredRoutes: Array<string> = [];
-
-    searchText:string;
-    isLoggedIn$: Observable<boolean>;
-    constructor(private router:Router, private services : EndpointsService){}
-
+    searchText: string;
+    private userLoggedIn: boolean;
+    private subscription: Subscription;
+    constructor(private router: Router, private services: EndpointsService) { }
+   
+    // If user is logged in or not, set value to true or false
+    private setLoggedIn(value: boolean): void {
+        this.services.setLoggedIn(value);
+    }
     ngOnInit() {
-        this.isLoggedIn$ = this.services.isLoggedIn;
+               //get status user loggedin or not
+        this.subscription = this.services.getLoggedIn().subscribe(value => {
+            this.userLoggedIn = value;
+        });
+         if (this.services.userToken) {
+            this.setLoggedIn(true);
+        }
+        else {
+            this.setLoggedIn(false);
+        }
         let routes = this.router.config;
         for (let route of routes) {
             if (route.path && route.path !== "datatable" && route.path !== "datagrid" && route.path !== "datalist" && route.path !== "datascroller" && route.path !== "growl")
                 this.routes.push(route.path.charAt(0).toUpperCase() + route.path.substr(1));
         }
     }
-
+    ngOnDestroy() {
+        if (this.subscription) {
+            this.subscription.unsubscribe();
+        }
+    }
     selectRoute(routeName) {
-        this.router.navigate(['/'+routeName.toLowerCase()]);
+        this.router.navigate(['/' + routeName.toLowerCase()]);
         this.filteredRoutes = [];
         this.searchText = "";
     }
@@ -48,7 +61,7 @@ export class AppComponent implements OnInit{
     }
 
     changeTheme(event: Event, theme: string, dark: boolean) {
-        let themeLink: HTMLLinkElement = <HTMLLinkElement> document.getElementById('theme-css');
+        let themeLink: HTMLLinkElement = <HTMLLinkElement>document.getElementById('theme-css');
         themeLink.href = 'assets/components/themes/' + theme + '/theme.css';
 
         if (dark) {
@@ -59,11 +72,11 @@ export class AppComponent implements OnInit{
                 document.body.appendChild(this.darkDemoStyle);
             }
         }
-        else if(this.darkDemoStyle) {
+        else if (this.darkDemoStyle) {
             document.body.removeChild(this.darkDemoStyle);
             this.darkDemoStyle = null;
         }
-        
+
         event.preventDefault();
     }
 
