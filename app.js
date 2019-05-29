@@ -8,7 +8,7 @@ const db = require('./Config/database')
 const admin = require('./Api/Admin/admin.routes')
 const user = require('./Api/User/user.routes')
 const attendance = require('./Api/Attendance/attendance.model')
-const task = require('./Api/Task/task.model')
+const task = require('./Api/Task/task.routes')
 const personal = require('./Api/Personal Notes/personal-notes.model')
 const tracking = require('./Api/Tracking/tracking.model')
 
@@ -30,5 +30,6 @@ app.get('/test',(req,res)=>{
 
 app.use('/api/admin',admin)
 app.use('/api/user',user)
+app.use('/api/task',task)
 
 app.listen(port, () => console.log(`server listening on port ${port}`));
