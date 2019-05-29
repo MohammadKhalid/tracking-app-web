@@ -1,6 +1,7 @@
 const attendanceModel = require('./attendance.model')
 const trackingModel = require('../Tracking/tracking.model')
 const sequelize = require('sequelize')
+const Op = sequelize.Op
 const moment = require('moment')
 
 module.exports = {
@@ -71,13 +72,19 @@ module.exports = {
     getAttendanceByDate: async (req, res) => {
         let { userId, date } = req.params
         try {
-            let finalData = []
             let tempDate = moment(date, "YYYY-MM-DD").subtract((10), 'day').format("YYYY-MM-DD")
-            
+            let attendenceResult = await attendanceModel.findAll({
+                where:{
+                    date: {
+                        [Op.between]: [tempDate,date]
+                    },
+                    userId: userId
+                }
+            })
 
             res.send({
                 'message': 'success',
-                'data': finalData,
+                'data': attendenceResult,
                 'code': 200
             })
         } catch (error) {

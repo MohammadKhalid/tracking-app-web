@@ -5,6 +5,6 @@ const { check } = require('express-validator/check');
 
 router.post('/markAttendance',attendanceController.markAttendance)
 
-router.get('/getAttendanceByDate/:userid/:date',attendanceController.getAttendanceByDate)
+router.get('/getAttendanceByDate/:userId/:date',attendanceController.getAttendanceByDate)
 
 module.exports = router;
