@@ -129,7 +129,7 @@ module.exports = {
         try {
             const { adminId, firstname, lastname, email,phone } = req.body;
             const {employeeId} = req.params;
-            let updated = await users.update({
+            let updated = await userModel.update({
                 firstName: firstname,
                 lastName: lastname,
                 email: email,
