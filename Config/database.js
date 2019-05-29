@@ -1,7 +1,7 @@
 const sequelize = require('sequelize');
 
 
-module.exports = new sequelize('hrm1','owais', '!root123', {
+module.exports = new sequelize('hrm1','newuser', '!roots123', {
     host :'192.168.0.105',
     port : '3306',
     dialect :'mysql',
