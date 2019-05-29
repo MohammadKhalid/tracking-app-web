@@ -395,7 +395,7 @@ body {
     width: 300px;
 }
 
-#layout-content {
+.layout-content {
     margin-left: 300px;
     padding-top: 70px;
     background-color: #ffffff;
@@ -693,7 +693,7 @@ body {
         left: 0;
     }
 
-    #layout-content {
+    .layout-content {
         margin-left: 0;
         padding-top: 100px;
     }
