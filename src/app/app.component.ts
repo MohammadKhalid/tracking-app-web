@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { EndpointsService } from './api/endpoints.service';
+import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-root',
@@ -19,10 +22,11 @@ export class AppComponent implements OnInit{
     filteredRoutes: Array<string> = [];
 
     searchText:string;
-
-    constructor(private router:Router){}
+    isLoggedIn$: Observable<boolean>;
+    constructor(private router:Router, private services : EndpointsService){}
 
     ngOnInit() {
+        this.isLoggedIn$ = this.services.isLoggedIn;
         let routes = this.router.config;
         for (let route of routes) {
             if (route.path && route.path !== "datatable" && route.path !== "datagrid" && route.path !== "datalist" && route.path !== "datascroller" && route.path !== "growl")
