@@ -1,5 +1,6 @@
 <div class="layout-wrapper">
-  <div id="layout-topbar" *ngIf="isLoggedIn$ | async as isLoggedIn">
+       
+  <div id="layout-topbar" *ngIf="userLoggedIn">
       <a href="#" class="menu-button" (click)="onMenuButtonClick($event)">
           <i class="pi pi-bars"></i>
       </a>
@@ -62,9 +63,8 @@
               </ul>
           </li>
       </ul>
-  </div>
-
-  <div id="layout-sidebar" [ngClass]="{'active': menuActive}" *ngIf="isLoggedIn$ | async as isLoggedIn">
+  </div> 
+  <div id="layout-sidebar" [ngClass]="{'active': menuActive}" *ngIf="userLoggedIn">
       <div class="layout-menu">
           
           <a id="menu_input" #inputmenutitle [class.active-menuitem]="inputmenutitle.id == activeMenuId" (click)="activeMenuId = (activeMenuId === inputmenutitle.id ? null : inputmenutitle.id)">

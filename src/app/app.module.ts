@@ -8,11 +8,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { ToastrModule } from 'ngx-toastr';
 
 import { ButtonModule } from 'primeng/button';
-import {FileUploadModule} from 'primeng/fileupload';
-import {CardModule} from 'primeng/card';
+import { FileUploadModule } from 'primeng/fileupload';
+import { CardModule } from 'primeng/card';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { StepsModule } from 'primeng/steps';
+import { InputMaskModule } from 'primeng/inputmask';
 
 import { Part15Component } from './components/landingpage/part15/part15.component';
 import { Part10Component } from './components/landingpage/part10/part10.component';
@@ -44,7 +45,8 @@ import { EndpointsService } from './api/endpoints.service';
     BrowserAnimationsModule,
     ButtonModule,
     StepsModule,
-    
+    InputMaskModule,
+
     FileUploadModule,
     CardModule,
     ToastrModule.forRoot()
