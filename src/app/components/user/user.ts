@@ -14,7 +14,7 @@ import { EndpointsService } from 'src/app/api/endpoints.service';
 })
 export class user{
 
-
+  val1: string;
 
  
   constructor(private toaster : ToastrService ,  private authService: EndpointsService, private router: Router, private formbuilder: FormBuilder) { }
