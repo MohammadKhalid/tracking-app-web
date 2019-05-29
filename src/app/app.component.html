@@ -258,7 +258,7 @@
   <div class="layout-mask" *ngIf="menuActive">
   </div>
 
-  <div [ngClass]= "{'layout-content': isLoggedIn$}">
+  <div [ngClass]= "{'layout-content': userLoggedIn}">
       <div>
           <router-outlet></router-outlet>
       </div>

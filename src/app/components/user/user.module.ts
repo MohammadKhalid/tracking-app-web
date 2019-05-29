@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { UserRoutingModule } from './user-routing.module';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { user } from './user';
 import { InputMaskModule } from 'primeng/inputmask';
@@ -17,7 +18,9 @@ import {InputTextModule} from 'primeng/inputtext';
     UserRoutingModule,
     InputMaskModule,
     FileUploadModule,
-    InputTextModule
+    InputTextModule,
+    ReactiveFormsModule,
+    FormsModule 
     
   ]
 })

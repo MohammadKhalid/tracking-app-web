@@ -14,7 +14,9 @@ export class EndpointsService {
   private userLoggedIn = new BehaviorSubject(false);
   constructor(private http: HttpClient) { }
   get userToken() {
+   
     return JWT(this.accessToken);
+
   }
   getLoggedIn(): Observable<boolean> {
     return this.userLoggedIn.asObservable();
@@ -40,5 +42,8 @@ export class EndpointsService {
     return this.http.post(this.apiUrl + 'admin/register', payload);
   }
 
+  adduser(payload) {
+    return this.http.post(this.apiUrl + 'user/create', payload)
+  }
 
 }

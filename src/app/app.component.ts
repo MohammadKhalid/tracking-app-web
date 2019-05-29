@@ -35,6 +35,7 @@ export class AppComponent implements OnInit {
         }
         else {
             this.setLoggedIn(false);
+            this.router.navigate(['login'])
         }
         let routes = this.router.config;
         for (let route of routes) {

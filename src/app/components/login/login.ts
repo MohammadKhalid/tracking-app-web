@@ -36,6 +36,7 @@ export class login {
   login(loginForm) {
     this.apiservice.Adminlogin(this.loginForm.value)
       .subscribe((res: any) => {
+        console.log(res);
         if (res.code == 200) {
           this.setLoggedIn(true);
           localStorage.setItem('token', res.token);
