@@ -44,7 +44,8 @@
     "sequelize-msnodesqlv8": "^0.2.6-beta.8",
     "stripe": "^6.20.1",
     "ngx-toastr": "^10.0.2",
-    "font-awesome": "4.7.0"
+    "font-awesome": "4.7.0",
+    "jwt-decode": "^2.2.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.13.0",
