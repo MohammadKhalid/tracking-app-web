@@ -10,7 +10,7 @@ import { Part15Component } from './components/landingpage/part15/part15.componen
             {path: '', component: Part15Component},
              {path: 'login', loadChildren: './components/login/login.module#loginModule'},
              {path: 'register', loadChildren: './components/register/register.module#registerModule'},
-            // {path: 'icons', loadChildren: './components/icons/icons.module#IconsModule'},
+            {path: 'users', loadChildren: './components/user/user.module#UserModule'},
             // {path: 'accordion', loadChildren: './components/accordion/accordiondemo.module#AccordionDemoModule'},
             // {path: 'autocomplete', loadChildren: './components/autocomplete/autocompletedemo.module#AutoCompleteDemoModule'},
             // {path: 'blockui', loadChildren: './components/blockui/blockuidemo.module#BlockUIDemoModule'},
