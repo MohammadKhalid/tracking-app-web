@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment'
 import { BehaviorSubject, Observable } from 'rxjs';
 import * as JWT from 'jwt-decode';
+import { HttpHeaders } from '@angular/common/http';
+
 @Injectable({
 
   providedIn: 'root'
@@ -49,4 +51,12 @@ export class EndpointsService {
     return this.http.post(this.apiUrl + 'user/create', payload)
   }
 
+
+  viewalluser(token : any , id : any){
+    let headers = new HttpHeaders().set('Content-Type', 'application/json');
+    headers = headers.set('Authorization', 'Bearer ' + token);
+  return this.http.get(this.apiUrl + `user/viewAllEmployee/${id}`,{
+    headers: headers
+  })
+  }
 }
