@@ -18,6 +18,9 @@ export class EndpointsService {
     return JWT(this.accessToken);
 
   }
+  get getUserId() {
+    return JWT(this.accessToken).admin.id;
+  }
   getLoggedIn(): Observable<boolean> {
     return this.userLoggedIn.asObservable();
   }
