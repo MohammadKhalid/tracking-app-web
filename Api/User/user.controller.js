@@ -107,9 +107,13 @@ module.exports = {
             let { adminId } = req.params
 
             let users = await userModel.findAll({
+                attributes:['email','id','phone','firstName','lastName'],
                 where: {
                     adminId: adminId
-                }
+                },
+                order:[
+                    ['id','DESC']
+                ]
             })
             return res.json({
                 code: 200,
