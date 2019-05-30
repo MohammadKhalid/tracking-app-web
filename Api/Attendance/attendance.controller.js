@@ -94,5 +94,33 @@ module.exports = {
                 'code': 500
             })
         }
-    }
+    },
+
+    getAttendance: async (req, res) => {
+        let { userId, fromDate,toDate } = req.params
+        try {
+            let attendenceResult = await attendanceModel.findAll({
+                where:{
+                    date: {
+                        [Op.between]: [fromDate,toDate]
+                    },
+                    userId: userId
+                }
+            })
+
+            res.send({
+                'message': 'success',
+                'data': attendenceResult,
+                'code': 200
+            })
+        } catch (error) {
+            res.send({
+                'message': 'Attendance API failed',
+                'data': error,
+                'code': 500
+            })
+        }
+    },
+
+
 }
