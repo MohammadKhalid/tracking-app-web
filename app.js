@@ -9,7 +9,7 @@ const admin = require('./Api/Admin/admin.routes')
 const user = require('./Api/User/user.routes')
 const attendance = require('./Api/Attendance/attendance.routes')
 const task = require('./Api/Task/task.routes')
-const personal = require('./Api/Personal Notes/personal-notes.model')
+const personal = require('./Api/Personal Notes/personal-notes.routes')
 const tracking = require('./Api/Tracking/tracking.routes')
 
 app.use(bodyparser.json());
@@ -33,5 +33,6 @@ app.use('/api/user',user)
 app.use('/api/task',task)
 app.use('/api/attendance',attendance)
 app.use('/api/tracking',tracking)
+app.use('/api/notes',personal)
 
 app.listen(port, () => console.log(`server listening on port ${port}`));
