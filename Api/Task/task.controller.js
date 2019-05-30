@@ -52,8 +52,12 @@ module.exports = {
             let { employeeId, dateFrom, dateTo } = req.params
             let userTask = await taskModel.findAll({
                 include: [{
-                    model: userModel
+                    model: userModel,
+                    attributes: ['firstName','lastName']
                 }],
+                order:[
+                    ['id','DESC']
+                ],
                 where: {
                     date: {
                         [Op.between]: [dateFrom, dateTo]

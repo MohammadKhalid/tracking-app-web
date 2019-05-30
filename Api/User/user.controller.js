@@ -110,7 +110,10 @@ module.exports = {
                 attributes:['email','id','phone','firstName','lastName'],
                 where: {
                     adminId: adminId
-                }
+                },
+                order:[
+                    ['id','DESC']
+                ]
             })
             return res.json({
                 code: 200,
