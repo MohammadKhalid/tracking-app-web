@@ -25,6 +25,7 @@ import { EndpointsService } from './api/endpoints.service';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +36,7 @@ import { EndpointsService } from './api/endpoints.service';
     Part12Component,
     Part13Component,
     Part14Component
+   
   ],
   imports: [
     BrowserModule,
@@ -51,8 +53,9 @@ import { EndpointsService } from './api/endpoints.service';
     CardModule,
     ToastrModule.forRoot()
   ],
+  
   providers: [
-    { provide: LocationStrategy, useClass: HashLocationStrategy },
+    { provide: LocationStrategy, useClass: HashLocationStrategy, },
     EndpointsService
   ],
   bootstrap: [AppComponent]

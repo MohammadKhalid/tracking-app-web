@@ -8,13 +8,20 @@ import { InputMaskModule } from 'primeng/inputmask';
 import {FileUploadModule} from 'primeng/fileupload';
 import {InputTextModule} from 'primeng/inputtext';
 import {TableModule} from 'primeng/table';
+import {PaginatorModule} from 'primeng/paginator';
+import {DialogModule} from 'primeng/dialog';
+import {DynamicDialogModule} from 'primeng/dynamicdialog';
+
 
 import { view } from './view';
+import { Addedit } from './addedit';
+import { AddeditmodelComponent } from './addeditmodel/addeditmodel.component';
 
 
 
 @NgModule({
-  declarations: [view],
+  declarations: [view, AddeditmodelComponent
+  ],
   imports: [
     CommonModule,
     viewRoutingModule,
@@ -23,8 +30,13 @@ import { view } from './view';
     InputTextModule,
     ReactiveFormsModule,
     FormsModule ,
-    TableModule
+    TableModule,
+    PaginatorModule,
+    DialogModule,
+    DynamicDialogModule
     
-  ]
+    
+  ],
+  entryComponents:[AddeditmodelComponent]
 })
 export class viewModule { }

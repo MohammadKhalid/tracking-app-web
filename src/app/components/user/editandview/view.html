@@ -1,21 +1,101 @@
-<p-table [value]="list">
+<div class="content-section introduction">
+
+  <div class="p-grid">
+    <div class="p-col-6">
+      <h4 class="feature-title">View All Users</h4>
+    </div>
+    <div class="p-col-6 text-right">
+      <button (click)="show()" pButton type="button" label="ADD"
+        class="ui-button-rounded p-col-align-end"></button>
+    </div>
+
+  </div>
+
+</div>
+
+
+
+<p-table class="content-section implementation ui-fluid" [rowsPerPageOptions]="[10,20,30]" [responsive]="true"
+  [value]="users" [paginator]="true" [rows]="10">
   <ng-template pTemplate="header">
-      <tr>
-          <th></th>
-          <th></th>
-          <th></th>
-          <th></th>
-          <th></th>
-      </tr>
+    <tr>
+      <!-- <th>S.no</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Action</th> -->
+
+
+      <th style="width: 4em;">S.no</th>
+      <th pSortableColumn="firstName">First Name <p-sortIcon field="firstName"></p-sortIcon>
+      </th>
+      <th pSortableColumn="lastName">Last Name <p-sortIcon field="lastName"></p-sortIcon>
+      </th>
+      <th style="width: 20em;" pSortableColumn="email">Email <p-sortIcon field="email"></p-sortIcon>
+      </th>
+      <th pSortableColumn="phone">Phone <p-sortIcon field="phone"></p-sortIcon>
+      </th>
+      <th>Action </th>
+
+    </tr>
   </ng-template>
-  <ng-template pTemplate="body" let-car>
-      <tr>
-          <td>1</td>
-          <td>2</td>
-          <td>3</td>
-          <td>4</td>
-          <td> <button pButton type="button" label="Primary" class="ui-button-rounded"></button>
-          </td>
-      </tr>
+  <ng-template pTemplate="body" let-user let-rowIndex="rowIndex">
+    <tr>
+      <td><span class="ui-column-title">S.no</span>{{rowIndex + 1}}</td>
+      <td>{{user.firstName}}</td>
+      <td>{{user.lastName}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.phone}}</td>
+
+      <td> <button pButton type="button" label="Primary" class="ui-button-rounded"></button>
+      </td>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="emptymessage" let-columns>
+    <tr>
+      <td [attr.colspan]="columns.length">
+        No records found
+      </td>
+    </tr>
   </ng-template>
 </p-table>
+
+
+
+
+
+<!-- <p-dialog header="Title" [(visible)]="display" [contentStyle]="{'height':'500px'}" [contentStyle]="{'overflow':'visible'}">
+  <p-header>
+    Header content here
+  </p-header>
+  <form [formGroup]="addUserform" (ngSubmit)="userLogin()">
+    <div class="box">
+      <h6 class="first">First name</h6>
+      <input id="input" type="text" class="full-width" pInputText>
+    </div>
+
+    <div class="box">
+      <h6 class="first">Last name</h6>
+      <input id="input" type="text" class="full-width" pInputText>
+    </div>
+    <div class="box">
+      <h6 class="first">Email</h6>
+      <input id="input" type="text" class="full-width" pInputText>
+    </div>
+    <div class="box">
+      <h6 class="first">Password</h6>
+      <input id="input" type="text" class="full-width" pInputText>
+    </div>
+    <div class="box">
+      <h6 class="first">Phone</h6>
+      <input id="input" type="text" class="full-width" pInputText>
+    </div>
+
+
+
+  </form>
+  <p-footer>
+
+  </p-footer>
+</p-dialog> -->
