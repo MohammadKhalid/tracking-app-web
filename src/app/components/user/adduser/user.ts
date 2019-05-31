@@ -34,11 +34,6 @@ export class user {
       adminId: [this.token]
 
 
-
-
-
-
-
     })
     console.log(this.token);
   }

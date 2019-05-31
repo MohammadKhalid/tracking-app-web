@@ -16,7 +16,7 @@ export class EndpointsService {
   private userLoggedIn = new BehaviorSubject(false);
   constructor(private http: HttpClient) { }
   get userToken() {
-   
+
     return JWT(this.accessToken);
 
   }
@@ -51,12 +51,15 @@ export class EndpointsService {
     return this.http.post(this.apiUrl + 'user/create', payload)
   }
 
+  editemployee(payload) {
+    return this.http.put(this.apiUrl + `user/editemployee/${payload.id}`, payload)
+  }
 
-  viewalluser(token : any , id : any){
+  viewalluser(token: any, id: any) {
     let headers = new HttpHeaders().set('Content-Type', 'application/json');
     headers = headers.set('Authorization', 'Bearer ' + token);
-  return this.http.get(this.apiUrl + `user/viewAllEmployee/${id}`,{
-    headers: headers
-  })
+    return this.http.get(this.apiUrl + `user/viewAllEmployee/${id}`, {
+      headers: headers
+    })
   }
 }

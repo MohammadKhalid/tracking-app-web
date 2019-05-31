@@ -5,7 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { EndpointsService } from 'src/app/api/endpoints.service';
 import * as JWT from 'jwt-decode';
-import {DialogService} from 'primeng/api';
+import { DialogService } from 'primeng/api';
 import { Addedit } from './addedit';
 import { AddeditmodelComponent } from './addeditmodel/addeditmodel.component';
 
@@ -17,17 +17,17 @@ import { AddeditmodelComponent } from './addeditmodel/addeditmodel.component';
 @Component({
   templateUrl: './view.html',
   styleUrls: ['./view.css'],
-  providers:[DialogService]
- 
+  providers: [DialogService]
+
 })
 export class view {
 
- users:[];
- columns = [];
-  constructor(private dialogService : DialogService,private toaster: ToastrService, private authService: EndpointsService, private router: Router, private formbuilder: FormBuilder) { }
+  users: [];
+  columns = [];
+  constructor(private dialogService: DialogService, private toaster: ToastrService, private authService: EndpointsService, private router: Router, private formbuilder: FormBuilder) { }
 
   ngOnInit() {
-  
+
     this.authService.viewalluser(this.authService.userToken, this.authService.getUserId).subscribe((res: any) => {
       this.users = res.data;
 
@@ -38,7 +38,7 @@ export class view {
         { field: 'Email', header: 'Email' },
         { field: 'Phone', header: 'Phone' },
         { field: 'Action', header: 'Action' }
-    ];
+      ];
 
 
     })
@@ -48,13 +48,13 @@ export class view {
   }
   display: boolean = false;
 
-   
 
-    show() {
-      const ref = this.dialogService.open(AddeditmodelComponent, {
-            header:'Add User',
-            width: '40%' 
-             });
+
+  show(user) {
+    const ref = this.dialogService.open(AddeditmodelComponent, {
+      data: user,
+      width: '40%'
+    });
 
   }
 }

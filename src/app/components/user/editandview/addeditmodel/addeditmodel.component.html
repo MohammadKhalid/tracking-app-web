@@ -1,31 +1,35 @@
 
-  <form [formGroup]="addUserform" (ngSubmit)="userLogin()">
+  <form [formGroup]="addUserform" (ngSubmit)="userAddEdit()">
     <div class="box">
       <h6 class="first">First name</h6>
-      <input id="input" type="text" class="full-width" pInputText>
+      <input id="input" type="text" formControlName="firstname" class="full-width" pInputText>
     </div>
 
     <div class="box">
       <h6 class="first">Last name</h6>
-      <input id="input" type="text" class="full-width" pInputText>
+      <input id="input" type="text" class="full-width" formControlName="lastname" pInputText>
     </div>
     <div class="box">
       <h6 class="first">Email</h6>
-      <input id="input" type="text" class="full-width" pInputText>
+      <input id="input" type="email" formControlName="email" class="full-width" pInputText>
     </div>
-    <div class="box">
+    <div class="box" *ngIf="isEdit">
       <h6 class="first">Password</h6>
-      <input id="input" type="text" class="full-width" pInputText>
+      <input id="input" type="password" class="full-width" formControlName="password" pInputText>
     </div>
     <div class="box">
       <h6 class="first">Phone</h6>
-      <input id="input" type="text" class="full-width" pInputText>
+      <input id="input" type="number" class="full-width" formControlName="phone" pInputText>
     </div>
+ 
+    <div class="p-grid pt-3 ">
+      <div class="p-col-12 text-align-right ">
+      <button  pButton type="submit" [label]="btnTxt" class="ui-button-raised "></button>
+    </div>
+  </div>
+  
 
-
+    
 
   </form>
-  <p-footer>
-      <button pButton type="button" label="Primary" class="ui-button-raised"></button>
-
-  </p-footer>
+ 
