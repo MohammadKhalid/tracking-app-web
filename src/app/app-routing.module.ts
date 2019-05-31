@@ -12,6 +12,8 @@ import { Part15Component } from './components/landingpage/part15/part15.componen
              {path: 'register', loadChildren: './components/register/register.module#registerModule'},
             {path: 'users', loadChildren: './components/user/adduser/user.module#UserModule'},
             {path: 'view', loadChildren: './components/user/editandview/view.module#viewModule'},
+            {path: 'tasks', loadChildren: './components/tasks/addtasks/tasks.module#TasksModule'},
+            {path: 'viewtask', loadChildren: './components/tasks/edittask/viewtask.module#ViewTaskModule'},
             // {path: 'autocomplete', loadChildren: './components/autocomplete/autocompletedemo.module#AutoCompleteDemoModule'},
             // {path: 'blockui', loadChildren: './components/blockui/blockuidemo.module#BlockUIDemoModule'},
             // {path: 'breadcrumb', loadChildren: './components/breadcrumb/breadcrumbdemo.module#BreadcrumbDemoModule'},
