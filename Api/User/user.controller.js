@@ -56,7 +56,7 @@ module.exports = {
         let { email, password, phone, firstname, lastname, image, adminId } = req.body
         const error = validationResult(req)
         if (!error.isEmpty()) {
-            return res.json({ code: 500, data: '', message: error.array() });
+            return res.json({ code: 500, data: '', message: error.array()[0] });
         }
 
         try {
