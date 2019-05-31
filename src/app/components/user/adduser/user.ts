@@ -35,16 +35,13 @@ export class user {
 
 
     })
-    console.log(this.token);
   }
-  userLogin() {
-    console.log(this.addUserform.value);
+  adduser() {
     this.authService.adduser(this.addUserform.value).subscribe((res: any) => {
       if (res.code == 200) {
         this.toaster.success('done')
       } else {
-        console.log('no')
-        console.log(res);
+        this.toaster.success('done')
       }
     })
   }

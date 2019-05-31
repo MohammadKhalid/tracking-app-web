@@ -21,7 +21,7 @@ export class AddeditmodelComponent implements OnInit {
     public config: DynamicDialogConfig) { }
   token: string;
   btnTxt: string;
-  isEdit: boolean= false;
+  isEdit: boolean = false;
 
   ngOnInit() {
     this.token = this.services.getUserId;
@@ -37,7 +37,6 @@ export class AddeditmodelComponent implements OnInit {
       id: ""
 
     })
-    debugger;
     if (this.config.data) {
       this.addUserform.controls['firstname'].setValue(this.config.data.firstName);
       this.addUserform.controls['lastname'].setValue(this.config.data.lastName);
@@ -45,39 +44,43 @@ export class AddeditmodelComponent implements OnInit {
       this.addUserform.controls['phone'].setValue(this.config.data.phone);
       this.addUserform.controls['id'].setValue(this.config.data.id);
       this.config.header = "Udate User";
+      this.addUserform.get('password').setValidators([]);
       this.btnTxt = "Update";
-      this.isEdit= false;
+      this.isEdit = false;
     }
     else {
       this.config.header = "Add User";
       this.btnTxt = "Add";
-      this.isEdit= true;
+      this.isEdit = true;
 
     }    // let test = this.config.data.id;
 
   }
   userAddEdit() {
-    debugger;
     console.log(this.addUserform.value);
-    if (this.addUserform.value.id == "") {
-      this.services.adduser(this.addUserform.value).subscribe((res: any) => {
-        if (res.code == 200) {
-          this.toaster.success(res.message)
-          this.ref.close()
-        } else {
-          this.toaster.error(res.message)
-        }
-      })
+    if (this.addUserform.valid) {
+      if (this.addUserform.value.id == "") {
+        this.services.adduser(this.addUserform.value).subscribe((res: any) => {
+          debugger;
+          if (res.code == 200) {
+            this.toaster.success(res.message.msg);
+            this.ref.close()
+          } else {
+            this.toaster.error(res.message.msg);
+          }
+        })
+      }
+      else {
+        this.services.editemployee(this.addUserform.value).subscribe((res: any) => {
+          if (res.code == 200) {
+            this.toaster.success(res.message.msg);
+            this.ref.close()
+          } else {
+            this.toaster.error(res.message.msg);
+          }
+        })
+      }
     }
-    else{
-      this.services.editemployee(this.addUserform.value).subscribe((res: any) => {
-        if (res.code == 200) {
-          this.toaster.success(res.message)
-          this.ref.close()
-        } else {
-          this.toaster.error(res.message)
-        }
-      })
-    }
+ 
   }
 }

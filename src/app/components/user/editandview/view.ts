@@ -24,13 +24,16 @@ export class view {
 
   users: [];
   columns = [];
+    display: boolean = false;
   constructor(private dialogService: DialogService, private toaster: ToastrService, private authService: EndpointsService, private router: Router, private formbuilder: FormBuilder) { }
-
+ 
   ngOnInit() {
+    this.getList();
+  }
 
+  getList() {
     this.authService.viewalluser(this.authService.userToken, this.authService.getUserId).subscribe((res: any) => {
       this.users = res.data;
-
       this.columns = [
         { field: 'S.no', header: 'S.no' },
         { field: 'First Name', header: 'First Name' },
@@ -39,16 +42,9 @@ export class view {
         { field: 'Phone', header: 'Phone' },
         { field: 'Action', header: 'Action' }
       ];
-
-
     })
 
-
-
   }
-  display: boolean = false;
-
-
 
   show(user) {
     const ref = this.dialogService.open(AddeditmodelComponent, {
@@ -56,5 +52,8 @@ export class view {
       width: '40%'
     });
 
+    ref.onClose.subscribe(() => {
+      this.getList();
+    });
   }
 }
