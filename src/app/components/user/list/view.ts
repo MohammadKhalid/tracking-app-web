@@ -6,7 +6,6 @@ import { Router } from '@angular/router';
 import { EndpointsService } from 'src/app/api/endpoints.service';
 import * as JWT from 'jwt-decode';
 import { DialogService } from 'primeng/api';
-import { Addedit } from './addedit';
 import { AddeditmodelComponent } from './addeditmodel/addeditmodel.component';
 
 

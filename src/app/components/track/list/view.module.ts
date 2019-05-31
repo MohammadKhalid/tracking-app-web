@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { viewRoutingModule } from './view-routing.module';
+import { ViewRoutingModule } from './view-routing.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { InputMaskModule } from 'primeng/inputmask';
@@ -13,17 +13,15 @@ import {DialogModule} from 'primeng/dialog';
 import {DynamicDialogModule} from 'primeng/dynamicdialog';
 
 
-import { view } from './view';
-import { AddeditmodelComponent } from './addeditmodel/addeditmodel.component';
-
-
+import { View } from './view';
+import { MapComponent } from './map/map.component';
+import { FilterlistComponent } from './filterlist/filterlist.component';
 
 @NgModule({
-  declarations: [view, AddeditmodelComponent
-  ],
+  declarations: [View, MapComponent, FilterlistComponent],
   imports: [
     CommonModule,
-    viewRoutingModule,
+    ViewRoutingModule,
     InputMaskModule,
     FileUploadModule,
     InputTextModule,
@@ -36,6 +34,6 @@ import { AddeditmodelComponent } from './addeditmodel/addeditmodel.component';
     
     
   ],
-  entryComponents:[AddeditmodelComponent]
+  entryComponents:[]
 })
 export class viewModule { }

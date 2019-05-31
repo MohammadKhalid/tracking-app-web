@@ -14,14 +14,10 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { StepsModule } from 'primeng/steps';
 import { InputMaskModule } from 'primeng/inputmask';
-
-import { Part15Component } from './components/landingpage/part15/part15.component';
-import { Part10Component } from './components/landingpage/part10/part10.component';
-import { Part11Component } from './components/landingpage/part11/part11.component';
-import { Part12Component } from './components/landingpage/part12/part12.component';
-import { Part13Component } from './components/landingpage/part13/part13.component';
-import { Part14Component } from './components/landingpage/part14/part14.component';
+import { View } from './components/track/list/view';
 import { EndpointsService } from './api/endpoints.service';
+import { MapComponent } from './components/track/list/map/map.component';
+import { FilterlistComponent } from './components/track/list/filterlist/filterlist.component';
 
 
 
@@ -30,13 +26,9 @@ import { EndpointsService } from './api/endpoints.service';
   declarations: [
     AppComponent,
     HomeComponent,
-    Part15Component,
-    Part10Component,
-    Part11Component,
-    Part12Component,
-    Part13Component,
-    Part14Component
-   
+    View,
+    MapComponent,
+    FilterlistComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +45,7 @@ import { EndpointsService } from './api/endpoints.service';
     CardModule,
     ToastrModule.forRoot()
   ],
-  
+
   providers: [
     { provide: LocationStrategy, useClass: HashLocationStrategy, },
     EndpointsService
