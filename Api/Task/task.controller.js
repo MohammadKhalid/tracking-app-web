@@ -5,7 +5,6 @@ const { validationResult } = require('express-validator/check');
 const Sequelize = require('sequelize')
 const Op = Sequelize.Op
 
-
 module.exports = {
     assignTask: async (req, res) => {
         let { userId, title, description, date } = req.body
