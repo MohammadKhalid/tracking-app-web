@@ -14,7 +14,6 @@ import {DynamicDialogModule} from 'primeng/dynamicdialog';
 
 
 import { view } from './view';
-import { Addedit } from './addedit';
 import { AddeditmodelComponent } from './addeditmodel/addeditmodel.component';
 
 

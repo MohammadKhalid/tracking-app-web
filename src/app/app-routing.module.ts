@@ -1,8 +1,7 @@
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
-// import { HomeComponent } from './components/home/home.component';
+import { View } from './components/track/list/view';
 import { Part15Component } from './components/landingpage/part15/part15.component';
-
 
 @NgModule({
     imports: [
@@ -102,4 +101,4 @@ import { Part15Component } from './components/landingpage/part15/part15.componen
     ],
     exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
