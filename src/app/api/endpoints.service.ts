@@ -62,4 +62,13 @@ export class EndpointsService {
       headers: headers
     })
   }
+
+
+  assignTask(payload, token){
+    let headers = new HttpHeaders().set('Content-Type', 'application/json');
+    headers = headers.set('Authorization', 'Bearer ' + token);
+    return this.http.post(this.apiUrl +'task/assignTask',payload,{
+      headers:headers
+    })
+  }
 }
