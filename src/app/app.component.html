@@ -12,12 +12,12 @@
         <ul class="topbar-menu">
 
             <li class="topbar-menu-themes">
-                <a href="#">Khan</a>
+                <a href="#">{{userName}}</a>
                 <ul>
                     <li>
-                    <a [routerLink]="['./login']" (click)="logout();">
-                        <span class="topbar-submenu-icon fa fa-book"></span>
-                    Logout</a>
+                        <a [routerLink]="['./login']" (click)="logout();">
+                            <span class="topbar-submenu-icon fa fa-book"></span>
+                            Logout</a>
                     </li>
                 </ul>
             </li>
@@ -36,13 +36,20 @@
                 <span>TRACKING</span>
             </a>
 
-
             <a [routerLink]="['user/view']" id="button_menuuser" #buttonmenuusers
                 [class.active-menuitem]="buttonmenuusers.id == activeMenuId"
                 (click)="activeMenuId = (activeMenuId === buttonmenuusers.id ? null : buttonmenuusers.id)">
                 <img src="assets/showcase/images/icons/button-active.svg" class="layout-menu-icon-active" />
                 <img src="assets/showcase/images/icons/button.svg" class="layout-menu-icon-inactive" />
                 <span>USERS</span>
+            </a>
+
+            <a [routerLink]="['task/view']" id="button_menutask" #buttonmenutask
+                [class.active-menuitem]="buttonmenutask.id == activeMenuId"
+                (click)="activeMenuId = (activeMenuId === buttonmenutask.id ? null : buttonmenutask.id)">
+                <img src="assets/showcase/images/icons/button-active.svg" class="layout-menu-icon-active" />
+                <img src="assets/showcase/images/icons/button.svg" class="layout-menu-icon-inactive" />
+                <span>TASK</span>
             </a>
 
         </div>

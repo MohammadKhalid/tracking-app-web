@@ -31,7 +31,10 @@ export class EndpointsService {
     localStorage.setItem('token', data);
   }
   get getUserId() {
-    return JWT(this.accessToken).admin.id;
+    return JWT(this.userToken()).admin.id;
+  }
+  get getUserName() {
+    return JWT(this.getAccessToken()).admin.firstName;
   }
   getLoggedIn(): Observable<boolean> {
     return this.userLoggedIn.asObservable();
