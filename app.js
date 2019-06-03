@@ -25,7 +25,7 @@ db.authenticate()
 
 
 app.get('/test',(req,res)=>{
-    res.send('hello World')
+    
 })
 
 app.use('/api/admin',admin)
