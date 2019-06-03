@@ -22,6 +22,7 @@ import {CalendarModule} from 'primeng/calendar';
 import {DropdownModule} from 'primeng/dropdown';
 import {ScrollPanelModule} from 'primeng/scrollpanel'; 
 import {GMapModule} from 'primeng/gmap';
+import { AgmCoreModule } from '@agm/core';
 
 
 @NgModule({
@@ -47,7 +48,11 @@ import {GMapModule} from 'primeng/gmap';
     CardModule,
     DropdownModule,
     ScrollPanelModule,
-    GMapModule,
+    GMapModule, 
+     AgmCoreModule.forRoot({
+      apiKey:'AIzaSyAohZ7btYPVl4_ABdRmMOO7t2Jo9cQF7s4'
+    }),
+    
 
     ToastrModule.forRoot()
   ],

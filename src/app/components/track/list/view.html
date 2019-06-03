@@ -112,7 +112,7 @@
     <div class="p-col-12 p-md-8 p-lg-9 p-col-align-center">
         <div class="box">
 
-            <app-map [attendanceRowData] = "attendanceRowData"></app-map>
+            <app-map [attendanceRowData] = "attendanceRowData" (mapEvent)="sendMaptoParent()"></app-map>
 
         </div>
 

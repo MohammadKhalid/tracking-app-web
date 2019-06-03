@@ -13,7 +13,7 @@ export class FilterlistComponent implements OnInit {
   ngOnInit() {
 
   }
-  sendAttendancetoParent(){
-    this.attendanceEvent.next(this.userAttendance);
+  sendAttendancetoParent(user){
+    this.attendanceEvent.next(user);
   }
 }

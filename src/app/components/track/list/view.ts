@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { EndpointsService } from 'src/app/api/endpoints.service';
 import * as moment from 'moment/moment';
+import { MapComponent } from './map/map.component';
+
 
 @Component({
 
@@ -10,6 +12,8 @@ import * as moment from 'moment/moment';
 
 })
 export class View {
+  @ViewChild(MapComponent)
+  mapEvent: MapComponent;
   attendanceRowData: any
   display: boolean = false;
   users: any = [];
@@ -32,7 +36,7 @@ export class View {
       this.users = res.data
     })
   }
-
+  
   getAttendance() {
     let payload = {
       userId: this.userId.id,
@@ -46,8 +50,13 @@ export class View {
   }
 
   attendanceEvent(data) {
-    this.attendanceRowData = data
-
+    // this.attendanceRowData = data;
+    this.attendanceRowData = {
+      userId: this.userId.id,
+      fromDate: moment(this.date1[0]).format('YYYY-MM-DD'),
+      toDate: moment(this.date1[1]).format('YYYY-MM-DD')
+    }
+    this.mapEvent.Attendence(this.attendanceRowData)
   }
 
   private setLoggedIn(value: boolean): void {
