@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { EndpointsService } from 'src/app/api/endpoints.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-map',
@@ -18,7 +19,7 @@ export class MapComponent implements OnInit {
   previous;
   pointStr: string;
   isCheckout: boolean = false;
-  constructor(private authService: EndpointsService) { }
+  constructor(private authService: EndpointsService, private toaster : ToastrService) { }
 
   ngOnInit() {
     
@@ -31,7 +32,7 @@ export class MapComponent implements OnInit {
       this.marker = [];
       this.pointStr = "";
       this.setpolylines(res);
-  
+     
     })
   }
   
