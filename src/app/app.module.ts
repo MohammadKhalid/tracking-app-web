@@ -19,9 +19,6 @@ import { EndpointsService } from './api/endpoints.service';
 import { MapComponent } from './components/track/list/map/map.component';
 import { FilterlistComponent } from './components/track/list/filterlist/filterlist.component';
 
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
