@@ -32,6 +32,7 @@ export class AppComponent implements OnInit {
         });
          if (this.services.userToken) {
             this.setLoggedIn(true);
+            this.router.navigate([''])
         }
         else {
             this.setLoggedIn(false);

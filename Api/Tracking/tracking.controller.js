@@ -37,33 +37,59 @@ module.exports = {
         }
     },
 
-    syncBulkTrackData: async (req,res) =>{
+    syncBulkTrackData: async (req, res) => {
         let { data } = req.body
-    if (data.length != 0) {
-        var temp = 0;
-        try {
-            for (var i = 0; i < data.length; i++) {
-                let trackingResult = await trackingModel.create({
-                    userId: data[i].userId,
-                    date: data[i].date,
-                    latitude: data[i].latitude,
-                    longitude: data[i].longitude
-                })
-                temp = (i + 1)
-            }
-            if (temp == data.length) {
+        if (data.length != 0) {
+            var temp = 0;
+            try {
+                for (var i = 0; i < data.length; i++) {
+                    let trackingResult = await trackingModel.create({
+                        userId: data[i].userId,
+                        date: data[i].date,
+                        latitude: data[i].latitude,
+                        longitude: data[i].longitude
+                    })
+                    temp = (i + 1)
+                }
+                if (temp == data.length) {
+                    res.send({
+                        'message': 'coordinates inserted',
+                        'data': 1,
+                        'code': 200
+                    })
+                } else {
+                    res.send({
+                        'message': 'unable to insert coordinates',
+                        'data': 0,
+                        'code': 500
+                    })
+                }
+            } catch (error) {
                 res.send({
-                    'message': 'coordinates inserted',
-                    'data': 1,
-                    'code': 200
-                })
-            } else {
-                res.send({
-                    'message': 'unable to insert coordinates',
+                    'message': 'API Failed',
                     'data': 0,
                     'code': 500
                 })
             }
+        }
+    },
+
+    getUserTrack: async (req, res) => {
+        try {
+            let {userId,date} = req.params
+
+            let trackData = await trackingModel.findAll({
+                where:{
+                    date: date,
+                    userId: userId
+                }
+            })
+
+            res.send({
+                'message': 'track data found',
+                'data': trackData,
+                'code': 200
+            })
         } catch (error) {
             res.send({
                 'message': 'API Failed',
@@ -71,6 +97,5 @@ module.exports = {
                 'code': 500
             })
         }
-    }
     }
 }

@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { tasks } from './tasks';
+import { viewtask } from './viewtask';
 
 
 
 @NgModule({
   imports: [RouterModule.forChild([{
     path:'',
-    component: tasks
+    component: viewtask
   }])],
   exports: [RouterModule]
 })
-export class TasksRoutingModule { }
+export class viewtaskRoutingModule { }

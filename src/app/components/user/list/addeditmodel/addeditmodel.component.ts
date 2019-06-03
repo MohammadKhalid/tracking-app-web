@@ -61,22 +61,21 @@ export class AddeditmodelComponent implements OnInit {
     if (this.addUserform.valid) {
       if (this.addUserform.value.id == "") {
         this.services.adduser(this.addUserform.value).subscribe((res: any) => {
-          debugger;
           if (res.code == 200) {
-            this.toaster.success(res.message.msg);
+            this.toaster.success(res.message);
             this.ref.close()
           } else {
-            this.toaster.error(res.message.msg);
+            this.toaster.error(res.message);
           }
         })
       }
       else {
         this.services.editemployee(this.addUserform.value).subscribe((res: any) => {
           if (res.code == 200) {
-            this.toaster.success(res.message.msg);
+            this.toaster.success(res.message);
             this.ref.close()
           } else {
-            this.toaster.error(res.message.msg);
+            this.toaster.error(res.message);
           }
         })
       }
