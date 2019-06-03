@@ -20,17 +20,17 @@ export class AppComponent implements OnInit {
     private userLoggedIn: boolean;
     private subscription: Subscription;
     constructor(private router: Router, private services: EndpointsService) { }
-   
+
     // If user is logged in or not, set value to true or false
     private setLoggedIn(value: boolean): void {
         this.services.setLoggedIn(value);
     }
     ngOnInit() {
-               //get status user loggedin or not
+        //get status user loggedin or not
         this.subscription = this.services.getLoggedIn().subscribe(value => {
             this.userLoggedIn = value;
         });
-         if (this.services.userToken) {
+        if (this.services.userToken) {
             this.setLoggedIn(true);
             this.router.navigate([''])
         }
@@ -43,6 +43,14 @@ export class AppComponent implements OnInit {
             if (route.path && route.path !== "datatable" && route.path !== "datagrid" && route.path !== "datalist" && route.path !== "datascroller" && route.path !== "growl")
                 this.routes.push(route.path.charAt(0).toUpperCase() + route.path.substr(1));
         }
+    }
+
+    logout() {
+        this.setLoggedIn(false);
+        this.services.setUserToken = "";
+
+        // this.services.getAccessToken();
+        this.router.navigate(['login']);
     }
     ngOnDestroy() {
         if (this.subscription) {

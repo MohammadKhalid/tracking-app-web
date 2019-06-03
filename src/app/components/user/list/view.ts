@@ -9,10 +9,6 @@ import { DialogService } from 'primeng/api';
 import { AddeditmodelComponent } from './addeditmodel/addeditmodel.component';
 
 
-
-
-
-
 @Component({
   templateUrl: './view.html',
   styleUrls: ['./view.css'],
@@ -23,11 +19,21 @@ export class view {
 
   users: [];
   columns = [];
-    display: boolean = false;
+  display: boolean = false;
   constructor(private dialogService: DialogService, private toaster: ToastrService, private authService: EndpointsService, private router: Router, private formbuilder: FormBuilder) { }
- 
+
   ngOnInit() {
-    this.getList();
+    if (!this.authService.userToken) {
+      this.setLoggedIn(false);
+      this.router.navigate(['login'])
+    }
+    else {
+      this.getList();
+    }
+  }
+
+  private setLoggedIn(value: boolean): void {
+    this.authService.setLoggedIn(value);
   }
 
   getList() {

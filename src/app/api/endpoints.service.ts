@@ -26,6 +26,7 @@ export class EndpointsService {
       return "";
     }
   }
+  
   set setUserToken(data) {
     localStorage.setItem('token', data);
   }
@@ -83,11 +84,12 @@ export class EndpointsService {
   viewtask(payload, token) {
     let headers = new HttpHeaders().set('Content-Type', 'application/json');
     headers = headers.set('Authorization', 'Bearer ' + token);
-    return this.http.get(this.apiUrl + `task/viewEmployeeTask/${payload.datefrom}/${payload.dateto}/${payload.user}`, {
-      headers: headers
+    return this.http.get(this.apiUrl +`task/viewEmployeeTask/${payload.datefrom}/${payload.dateto}/${payload.userId}`, {
+      headers : headers
     })
   }
-  edittask(payload) {
+  edittask(payload) { 
+    debugger;
     return this.http.put(this.apiUrl + `task/editTask/${payload.id}`, payload)
   }
 

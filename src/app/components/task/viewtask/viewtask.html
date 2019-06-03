@@ -74,7 +74,7 @@
 
 
 <p-table class="content-section implementation ui-fluid" [rowsPerPageOptions]="[10,20,30]" [responsive]="true"
-  [value]="users" [paginator]="true" [rows]="10">
+  [value]="view" [paginator]="true" [rows]="10">
   <ng-template pTemplate="header">
     <tr>
       <!-- <th>S.no</th>
@@ -86,31 +86,31 @@
 
 
       <th style="width: 4em;">S.no</th>
-      <th pSortableColumn="Date">Date <p-sortIcon field="Date"></p-sortIcon>
+      <th pSortableColumn="date">Date <p-sortIcon field="date"></p-sortIcon>
       </th>
-      <th pSortableColumn="Title">Title <p-sortIcon field="Title"></p-sortIcon>
+      <th pSortableColumn="title">Title <p-sortIcon field="title"></p-sortIcon>
       </th>
-      <th style="width: 20em;" pSortableColumn="Description">Description <p-sortIcon field="Description"></p-sortIcon>
+      <th style="width: 20em;" pSortableColumn="description">Description <p-sortIcon field="description"></p-sortIcon>
       </th>
-      <th pSortableColumn="phone">Phone <p-sortIcon field="phone"></p-sortIcon>
+      <th pSortableColumn="userId">User <p-sortIcon field="userId"></p-sortIcon>
       </th>
       <th>Action </th>
 
     </tr>
   </ng-template>
-  <ng-template pTemplate="body" let-user let-rowIndex="rowIndex">
+  <ng-template pTemplate="body" let-view let-rowIndex="rowIndex">
     <tr>
       <td><span class="ui-column-title">S.no</span>{{rowIndex + 1}}</td>
-      <td>{{user.firstName}}</td>
-      <td>{{user.lastName}}</td>
-      <td>{{user.email}}</td>
-      <td>{{user.phone}}</td>
+      <td>{{view.date}}</td>
+      <td>{{view.title}}</td>
+      <td>{{view.description}}</td>
+      <td>{{view.user.firstName}}</td>
 
-      <td> <button pButton type="button" label="Edit" (click)="show(user)" class="ui-button-rounded"></button>
+      <td> <button pButton type="button" label="Edit" (click)="show(view)" class="ui-button-rounded"></button>
       </td>
     </tr>
   </ng-template>
-  <ng-template pTemplate="emptymessage" let-columns>
+  <ng-template pTemplate="emptymessage" let-columns *ngIf="view.length < 0">
     <tr>
       <td [attr.colspan]="columns.length">
         No records found

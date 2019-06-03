@@ -1,14 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { FormControl, Validators, FormBuilder, FormGroup } from '@angular/forms';
-import { ToastrService } from 'ngx-toastr';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { EndpointsService } from 'src/app/api/endpoints.service';
-import * as JWT from 'jwt-decode';
-import { SelectItem } from 'primeng/api';
 import * as moment from 'moment/moment';
 
 @Component({
-  
+
   templateUrl: './view.html',
   styleUrls: ['./view.css']
 
@@ -20,10 +16,18 @@ export class View {
   date1: String
   userId: any;
   userAttendance: any;
-  constructor(private authService: EndpointsService) { }
+  constructor(private authService: EndpointsService,
+    private router: Router) { }
 
   ngOnInit() {
-    
+    if (this.authService.userToken) {
+      this.setLoggedIn(true);
+      this.router.navigate([''])
+    }
+    else {
+      this.setLoggedIn(false);
+      this.router.navigate(['login'])
+    }
     this.authService.viewalluser(this.authService.getAccessToken(), this.authService.getUserId).subscribe((res: any) => {
       this.users = res.data
     })
@@ -41,8 +45,12 @@ export class View {
     })
   }
 
-  attendanceEvent(data){
+  attendanceEvent(data) {
     this.attendanceRowData = data
+
   }
 
+  private setLoggedIn(value: boolean): void {
+    this.authService.setLoggedIn(value);
+  }
 }
