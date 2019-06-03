@@ -26,7 +26,7 @@ export class AddeditmodelComponent implements OnInit {
   date: string;
   userId: any;
   id
-
+  isEdit: boolean = false;
   users: []
   ngOnInit() {
     this.services.viewalluser(this.services.userToken, this.services.getUserId).subscribe((res: any) => {
@@ -37,19 +37,21 @@ export class AddeditmodelComponent implements OnInit {
     })
 
     this.token = this.services.getUserId;
-
+    debugger;
     if (this.config.data) {
-      this.title = this.config.data.firstName;
+      this.title = this.config.data.title;
       this.userId = this.config.data.userId;
       this.description = this.config.data.description;
       this.date = this.config.data.date;
       this.id = this.config.data.id;
       this.config.header = "Udate Task";
       this.btnTxt = "Update";
+      this.isEdit = false;
     }
     else {
       this.config.header = "Add Task";
       this.btnTxt = "Add";
+      this.isEdit = true;
     }    // let test = this.config.data.id;
   }
 
@@ -60,21 +62,35 @@ export class AddeditmodelComponent implements OnInit {
       description: this.description,
       date: moment(this.date).format('YYYY-MM-DD'),
       userId: this.userId.id,
+      id: this.id
     }
-    
-    this.services.assignTask(payload, this.services.userToken).subscribe((res: any) => {
-      if (res.code == 200) {
-        this.toaster.success(res.message);
-        console.log(res.data);
-        this.ref.close();
-      } else {
-        console.log(res.data);
-        this.toaster.error(res.message);
-      }
-    })
+    if (this.id) {
+      this.services.edittask(payload).subscribe((res: any) => {
+        if (res.code == 200) {
+          this.toaster.success(res.message);
+          this.ref.close()
+        } else {
+          this.toaster.error(res.message);
+        }
+      })
+    }
+    else {
+      this.services.assignTask(payload, this.services.userToken).subscribe((res: any) => {
+        if (res.code == 200) {
+          this.toaster.success(res.message);
+          console.log(res.data);
+          this.ref.close();
+        } else {
+          console.log(res.data);
+          this.toaster.error(res.message);
+        }
+      })
+    }
+
+    // this.services.edittask(payload).subscribe((res : any)=> {
+    //   console.log('edit', res)
+    // })
   }
 }
-
-
 
 

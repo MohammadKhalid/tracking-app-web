@@ -23,8 +23,8 @@ import * as moment from 'moment/moment';
 export class viewtask {
   rangeDates: string;
   users: [];
-  view: [];
-  columns = [];
+  view: any = [];
+  columns: any = [];
   date1: string;
   date2: Date;
 
@@ -36,8 +36,6 @@ export class viewtask {
     this.authService.viewalluser(this.authService.accessToken, this.authService.getUserId).subscribe((res: any) => {
       this.users = res.data
     })
-    console.log(this.rangeDates)
-    this.List();
   }
 
   List() {
@@ -54,10 +52,10 @@ export class viewtask {
       console.log(res)
       this.columns = [
         { field: 'S.no', header: 'S.no' },
-        { field: 'Date', header: 'Date' },
-        { field: 'Title', header: 'Tittle' },
-        { field: 'Description', header: 'Description' },
-        { field: 'Status', header: 'Status' },
+        { field: 'date', header: 'date' },
+        { field: 'title', header: 'tittle' },
+        { field: 'description', header: 'description' },
+        { field: 'userId', header: 'userId' },
         { field: 'Action', header: 'Action' }
       ];
     })

@@ -6,9 +6,9 @@
     </div>
 
   
-    <div class="box mt-1">
+    <div class="box mt-1" *ngIf="isEdit">
       <h6 class="first">Assign</h6>
-      <p-dropdown [options]="users"  placeholder="Select a User" optionLabel="firstName" [(ngModel)]="userId"></p-dropdown>
+      <p-dropdown [options]="users"   placeholder="Select a User" optionLabel="firstName" [(ngModel)]="userId"></p-dropdown>
       <!-- <select class="form-control" [(ngModel)]="userId">
           <option *ngFor="let user of users" [value]="user.id">{{user.firstName}} {{user.Lastname}}</option>
         </select>  -->
