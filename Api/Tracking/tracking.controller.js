@@ -1,4 +1,5 @@
 const trackingModel = require('./tracking.model')
+const attendanceModel = require('../Attendance/attendance.model')
 const { validationResult } = require('express-validator/check');
 
 module.exports = {
@@ -78,18 +79,36 @@ module.exports = {
         try {
             let {userId,date} = req.params
 
-            let trackData = await trackingModel.findAll({
+            let checkOutTime = await attendanceModel.findOne({
+                attributes: ['checkOutTime'],
                 where:{
-                    date: date,
-                    userId: userId
+                    userId: userId,
+                    date: date
                 }
             })
+                console.log(checkOutTime.checkOutTime)
 
-            res.send({
-                'message': 'track data found',
-                'data': trackData,
-                'code': 200
-            })
+            if(checkOutTime.checkOutTime){
+
+                var trackData = await trackingModel.findAll({
+                    where:{
+                        date: date,
+                        userId: userId
+                    }
+                })
+                res.send({
+                    'message': 'track data found',
+                    'data': trackData,
+                    'code': 200
+                })
+            }else{
+                res.send({
+                    'message': 'user not checked out.',
+                    'data': checkOutTime,
+                    'code': 500
+                })
+            }
+
         } catch (error) {
             res.send({
                 'message': 'API Failed',
