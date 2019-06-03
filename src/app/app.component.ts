@@ -19,6 +19,7 @@ export class AppComponent implements OnInit {
     searchText: string;
     private userLoggedIn: boolean;
     private subscription: Subscription;
+    private userName: string;
     constructor(private router: Router, private services: EndpointsService) { }
 
     // If user is logged in or not, set value to true or false
@@ -26,6 +27,7 @@ export class AppComponent implements OnInit {
         this.services.setLoggedIn(value);
     }
     ngOnInit() {
+        this.userName = this.services.getUserName;
         //get status user loggedin or not
         this.subscription = this.services.getLoggedIn().subscribe(value => {
             this.userLoggedIn = value;
