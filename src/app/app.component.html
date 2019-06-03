@@ -1,48 +1,60 @@
 <div class="layout-wrapper">
-       
-  <div id="layout-topbar" *ngIf="userLoggedIn">
-      <a href="#" class="menu-button" (click)="onMenuButtonClick($event)">
-          <i class="pi pi-bars"></i>
-      </a>
 
-      <a href="#" class="logo" [routerLink]="['/']">
-          <img alt="logo" src="assets/showcase/images/logo.png" />
-      </a>
+    <div id="layout-topbar" *ngIf="userLoggedIn">
+        <a href="#" class="menu-button" (click)="onMenuButtonClick($event)">
+            <i class="pi pi-bars"></i>
+        </a>
 
-      <ul class="topbar-menu">
-        
-          <li class="topbar-menu-themes">
-              <a href="#">User Name</a>
-              <ul>
-                  <li class="topbar-submenu-header">Khan</li>
-                  <li><a [routerLink]="['./theming']"><span class="topbar-submenu-icon fa fa-book"></span>Logout</a></li>
-                 </ul>
-          </li>
-         
-         
-      </ul>
-  </div> 
-  <div id="layout-sidebar" [ngClass]="{'active': menuActive}" *ngIf="userLoggedIn">
-      <div class="layout-menu">
-          
-         
+        <a href="#" class="logo" [routerLink]="['/']">
+            <img alt="logo" src="assets/showcase/images/logo.png" />
+        </a>
 
-          <a id="button_menutitle" #buttonmenutitle [class.active-menuitem]="buttonmenutitle.id == activeMenuId" (click)="activeMenuId = (activeMenuId === buttonmenutitle.id ? null : buttonmenutitle.id)">
-              <img src="assets/showcase/images/icons/button-active.svg" class="layout-menu-icon-active"/>
-              <img src="assets/showcase/images/icons/button.svg" class="layout-menu-icon-inactive"/>
-              <span>USERS</span>
-          </a>
-        
-      </div>
-  </div>
+        <ul class="topbar-menu">
 
-  <div class="layout-mask" *ngIf="menuActive">
-  </div>
+            <li class="topbar-menu-themes">
+                <a href="#">Khan</a>
+                <ul>
+                    <li>
+                    <a [routerLink]="['./login']" (click)="logout();">
+                        <span class="topbar-submenu-icon fa fa-book"></span>
+                    Logout</a>
+                    </li>
+                </ul>
+            </li>
 
-  <div [ngClass]= "{'layout-content': userLoggedIn}">
-      <div>
-          <router-outlet></router-outlet>
-      </div>
 
- 
-</div>
+        </ul>
+    </div>
+    <div id="layout-sidebar" [ngClass]="{'active': menuActive}" *ngIf="userLoggedIn">
+        <div class="layout-menu">
+
+            <a [routerLink]="['']" id="button_menutrack" #buttonmenutrack
+                [class.active-menuitem]="buttonmenutrack.id == activeMenuId"
+                (click)="activeMenuId = (activeMenuId === buttonmenutrack.id ? null : buttonmenutrack.id)">
+                <img src="assets/showcase/images/icons/button-active.svg" class="layout-menu-icon-active" />
+                <img src="assets/showcase/images/icons/button.svg" class="layout-menu-icon-inactive" />
+                <span>TRACKING</span>
+            </a>
+
+
+            <a [routerLink]="['user/view']" id="button_menuuser" #buttonmenuusers
+                [class.active-menuitem]="buttonmenuusers.id == activeMenuId"
+                (click)="activeMenuId = (activeMenuId === buttonmenuusers.id ? null : buttonmenuusers.id)">
+                <img src="assets/showcase/images/icons/button-active.svg" class="layout-menu-icon-active" />
+                <img src="assets/showcase/images/icons/button.svg" class="layout-menu-icon-inactive" />
+                <span>USERS</span>
+            </a>
+
+        </div>
+    </div>
+
+    <div class="layout-mask" *ngIf="menuActive">
+    </div>
+
+    <div [ngClass]="{'layout-content': userLoggedIn}">
+        <div>
+            <router-outlet></router-outlet>
+        </div>
+
+
+    </div>

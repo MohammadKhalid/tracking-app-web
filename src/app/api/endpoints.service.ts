@@ -26,6 +26,7 @@ export class EndpointsService {
       return "";
     }
   }
+  
   set setUserToken(data) {
     localStorage.setItem('token', data);
   }

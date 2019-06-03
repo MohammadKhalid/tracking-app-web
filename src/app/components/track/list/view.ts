@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { EndpointsService } from 'src/app/api/endpoints.service';
 import * as JWT from 'jwt-decode';
+import { SelectItem } from 'primeng/api';
 
 @Component({
   templateUrl: './view.html',
@@ -12,24 +13,21 @@ import * as JWT from 'jwt-decode';
 })
 export class View {
 
-    display: boolean = false;
-    cars: SelectItem[];
-  constructor() { }
- 
+  display: boolean = false;
+  cars: SelectItem[];
+  constructor(private router: Router, private apiservice: EndpointsService) { }
+
   ngOnInit() {
-    this.cars = [
-      {label: 'Audi', value: 'Audi'},
-      {label: 'BMW', value: 'BMW'},
-      {label: 'Fiat', value: 'Fiat'},
-      {label: 'Ford', value: 'Ford'},
-      {label: 'Honda', value: 'Honda'},
-      {label: 'Jaguar', value: 'Jaguar'},
-      {label: 'Mercedes', value: 'Mercedes'},
-      {label: 'Renault', value: 'Renault'},
-      {label: 'VW', value: 'VW'},
-      {label: 'Volvo', value: 'Volvo'}
-  ];
-
+    if (this.apiservice.userToken) {
+      this.setLoggedIn(true);
+      this.router.navigate([''])
+    }
+    else {
+      this.setLoggedIn(false);
+      this.router.navigate(['login'])
+    }
   }
-
+  private setLoggedIn(value: boolean): void {
+    this.apiservice.setLoggedIn(value);
+  }
 }
