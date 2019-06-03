@@ -2,40 +2,75 @@
 
   <div class="p-grid">
     <div class="p-col-6">
-      <h4 class="feature-title">View All Users</h4>
+      <h4 class="feature-title">Assign Task</h4>
     </div>
     <div class="p-col-6 text-right">
-      <button (click)="show()" pButton type="button" label="ADD"
-        class="ui-button-rounded p-col-align-end"></button>
+      <button (click)="show()" pButton type="button" label="ADD" class="ui-button-rounded p-col-align-end"></button>
     </div>
 
   </div>
 
 </div>
-<form [formGroup]="views " (ngSubmit)="view()" >
-   
-    <div class="p-grid pt-3">
-        <div class="p-col-4">
-            <div class="box">
-                <p-dropdown  [options]="users"  optionLabel="firstName" formControlName="selectedCity"></p-dropdown>
+<div class="content-section implementation ui-fluid">
+  <div class="ui-g">
+    <div class="ui-g-12 ui-md-4">
+      <div class="ui-g-4 ui-md-2"> User </div>
+      <div class="ui-g-8 ui-md-8">
+        <p-dropdown [options]="users" placeholder="Select a User" optionLabel="firstName" [(ngModel)]="userId">
+        </p-dropdown>
+      </div>
+    </div>
 
-            </div>
-        </div>
-        <div class="p-col-4">
-            <div class="box">
-              Range :  <p-calendar selectionMode="range" ></p-calendar>
 
-            </div>
-        </div>
-        <div class="p-col">
-            <div class="box">
-                <button pButton type="submit" icon="pi pi-check" label="View"></button>
+    <div class="ui-g-12 ui-md-4">
+      <div class="ui-g-4 ui-md-4">
+        Date Range
+      </div>
+      <div class="ui-g-8 ui-md-8">
+        <p-calendar [(ngModel)]="date1"  placeholder="Select a Date" selectionMode="range" [readonlyInput]="true"></p-calendar>
+      </div>
+    </div>
 
+
+    <div class="ui-g-12 ui-md-2">
+      <div class="ui-g-12">
+        <button pButton label="View" type="button" (click)=List()></button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- <div class="p-grid pt-3 "> -->
+  <!-- <div class="p-col-4">
+      <div class="box">
+        User :
+        <p-dropdown [options]="users" placeholder="Select a User" optionLabel="firstName" [(ngModel)]="userId">
+        </p-dropdown>
+      </div>
+    </div> -->
+  <!-- <div class="p-col-3">
+      <div class="box">
+        Range : <p-calendar [(ngModel)]="date1"></p-calendar>
+
+      </div>
+    </div> -->
+
+
+  <!-- <div class="p-col-3">
+            <div class="box">
+              TO <p-calendar [(ngModel)]="date2"></p-calendar>
+      
             </div>
-        </div>
+          </div> -->
+  <!-- <div class="p-col">
+      <div class="box">
+        <button pButton type="button" icon="pi pi-check" label="View" (click)=List()></button>
+
+      </div>
+    </div> -->
+  <!-- </div> -->
 </div>
 
-</form>
 
 
 <p-table class="content-section implementation ui-fluid" [rowsPerPageOptions]="[10,20,30]" [responsive]="true"

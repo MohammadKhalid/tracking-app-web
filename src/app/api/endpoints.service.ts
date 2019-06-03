@@ -71,4 +71,14 @@ export class EndpointsService {
       headers:headers
     })
   }
+  viewtask(payload,token){
+    let headers = new HttpHeaders().set('Content-Type', 'application/json');
+    headers = headers.set('Authorization', 'Bearer ' + token);
+    return this.http.get(this.apiUrl +`task/viewEmployeeTask/${payload.datefrom}/${payload.dateto}/${payload.user}`, {
+      headers : headers
+    })
+  }
+  edittask(payload) {
+    return this.http.put(this.apiUrl + `task/editTask/${payload.id}`, payload)
+  }
 }

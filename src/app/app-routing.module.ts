@@ -6,18 +6,17 @@ import { Part15Component } from './components/landingpage/part15/part15.componen
 @NgModule({
     imports: [
         RouterModule.forRoot([
-            {path: '', component: Part15Component},
              {path: 'login', loadChildren: './components/login/login.module#loginModule'},
              {path: 'register', loadChildren: './components/register/register.module#registerModule'},
           
-            {path: 'user/view', loadChildren: './components/user/editandview/view.module#viewModule'},
+            {path: 'user/view', loadChildren: './components/user/list/view.module#viewModule'},
              {path: 'task', loadChildren: './components/task/viewtask/viewtask.module#viewtaskModule'},
             // {path: 'blockui', loadChildren: './components/blockui/blockuidemo.module#BlockUIDemoModule'},
             // {path: 'breadcrumb', loadChildren: './components/breadcrumb/breadcrumbdemo.module#BreadcrumbDemoModule'},
             // {path: 'button', loadChildren: './components/button/buttondemo.module#ButtonDemoModule'},
             // {path: 'calendar', loadChildren: './components/calendar/calendardemo.module#CalendarDemoModule'},
             // {path: 'captcha', loadChildren: './components/captcha/captchademo.module#CaptchaDemoModule'},
-             {path: 'card', loadChildren: './components/card/carddemo.module#CardDemoModule'},
+            //  {path: 'card', loadChildren: './components/card/carddemo.module#CardDemoModule'},
             // {path: 'carousel', loadChildren: './components/carousel/carouseldemo.module#CarouselDemoModule'},
             // {path: 'chart', loadChildren: './components/chart/chartdemo.module#ChartDemoModule'},
             // {path: 'checkbox', loadChildren: './components/checkbox/checkboxdemo.module#CheckboxDemoModule'},

@@ -7,6 +7,7 @@ import { EndpointsService } from 'src/app/api/endpoints.service';
 import * as JWT from 'jwt-decode';
 import { DialogService } from 'primeng/api';
 import { AddeditmodelComponent } from './addeditmodel/addeditmodel.component';
+import * as moment from 'moment/moment';
 
 
 
@@ -20,20 +21,37 @@ import { AddeditmodelComponent } from './addeditmodel/addeditmodel.component';
 
 })
 export class viewtask {
-  rangeDates :string;
+  rangeDates: string;
   users: [];
+  view: [];
   columns = [];
-    display: boolean = false;
+  date1: string;
+  date2: Date;
+
+  userId: any;
+  display: boolean = false;
   constructor(private dialogService: DialogService, private toaster: ToastrService, private authService: EndpointsService, private router: Router, private formbuilder: FormBuilder) { }
- 
+
   ngOnInit() {
+    this.authService.viewalluser(this.authService.accessToken, this.authService.getUserId).subscribe((res: any) => {
+      this.users = res.data
+    })
     console.log(this.rangeDates)
-    this.getList();
+    this.List();
   }
 
-  getList() {
-    this.authService.viewalluser(this.authService.userToken, this.authService.getUserId).subscribe((res: any) => {
-      this.users = res.data;
+  List() {
+    debugger;
+    let payload = {
+      userId: this.userId.id,
+      datefrom: moment(this.date1[0]).format('YYYY-MM-DD'),
+      dateto: moment(this.date1[1]).format('YYYY-MM-DD'),
+    }
+    console.log(payload)
+
+    this.authService.viewtask(payload, this.authService.userToken).subscribe((res: any) => {
+      this.view = res.data;
+      console.log(res)
       this.columns = [
         { field: 'S.no', header: 'S.no' },
         { field: 'Date', header: 'Date' },
@@ -43,7 +61,6 @@ export class viewtask {
         { field: 'Action', header: 'Action' }
       ];
     })
-
   }
 
   show(user) {
@@ -53,7 +70,7 @@ export class viewtask {
     });
 
     ref.onClose.subscribe(() => {
-      this.getList();
+      this.List();
     });
   }
 }
