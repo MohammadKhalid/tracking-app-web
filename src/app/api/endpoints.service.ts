@@ -64,10 +64,10 @@ export class EndpointsService {
     return this.http.put(this.apiUrl + `user/editemployee/${payload.id}`, payload)
   }
 
-  viewalluser(token: any, id: any) {
+  viewalluser(token, id) {
     let headers = new HttpHeaders().set('Content-Type', 'application/json');
     headers = headers.set('Authorization', 'Bearer ' + token);
-    return this.http.get(this.apiUrl + `user/viewAllEmployee/${id}`, {
+    return this.http.get(`${this.apiUrl}user/viewAllEmployee/${id}`, {
       headers: headers
     })
   }
@@ -89,5 +89,13 @@ export class EndpointsService {
   }
   edittask(payload) {
     return this.http.put(this.apiUrl + `task/editTask/${payload.id}`, payload)
+  }
+
+  getAttendance(payload, token) {
+    let headers = new HttpHeaders().set('Content-Type', 'application/json');
+    headers = headers.set('Authorization', 'Bearer ' + token);
+    return this.http.get(this.apiUrl + `attendance/getAttendance/${payload.userId}/${payload.fromDate}/${payload.toDate}`, {
+      headers: headers
+    })
   }
 }

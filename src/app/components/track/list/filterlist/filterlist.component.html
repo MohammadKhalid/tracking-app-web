@@ -1,19 +1,18 @@
 
 <p-scrollPanel [style]="{ height: '300px'}" styleClass="custom">
- 
 
 
 
-<p-card class="card_body"[style]="{width: '100%'}">
+<p-card *ngFor="let user of userAttendance" (click)="sendAttendancetoParent()" class="card_body"[style]="{width: '100%'}">
     <!-- <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
         quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!</div> -->
         <div>
         <span class="card-atributes">check in:</span>
-        <span class="card-vales">31-12-2018</span>
+        <span class="card-vales">{{user.checkInTime}}</span>
       </div>
       <div>
         <span class="card-atributes">check out:</span>
-        <span class="card-vales">31-12-2018</span>
+        <span class="card-vales">{{user.checkOutTime}}</span>
        </div>
        <div>
         <span class="card-atributes">hours:</span>
@@ -21,227 +20,7 @@
         </div>
         <div>
         <span class="card-atributes">status:</span>
-        <span class="card-vales">31-12-2018</span>
-        </div>
-</p-card>
-<p-card class="card_body"[style]="{width: '100%'}">
-    <!-- <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
-        quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!</div> -->
-        <div>
-        <span class="card-atributes">check in:</span>
-        <span class="card-vales">31-12-2018</span>
-      </div>
-      <div>
-        <span class="card-atributes">check out:</span>
-        <span class="card-vales">31-12-2018</span>
-       </div>
-       <div>
-        <span class="card-atributes">hours:</span>
-        <span class="card-vales">31-12-2018</span>
-        </div>
-        <div>
-        <span class="card-atributes">status:</span>
-        <span class="card-vales">31-12-2018</span>
-        </div>
-</p-card>
-<p-card class="card_body"[style]="{width: '100%'}">
-    <!-- <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
-        quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!</div> -->
-        <div>
-        <span class="card-atributes">check in:</span>
-        <span class="card-vales">31-12-2018</span>
-      </div>
-      <div>
-        <span class="card-atributes">check out:</span>
-        <span class="card-vales">31-12-2018</span>
-       </div>
-       <div>
-        <span class="card-atributes">hours:</span>
-        <span class="card-vales">31-12-2018</span>
-        </div>
-        <div>
-        <span class="card-atributes">status:</span>
-        <span class="card-vales">31-12-2018</span>
-        </div>
-</p-card>
-<p-card class="card_body"[style]="{width: '100%'}">
-    <!-- <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
-        quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!</div> -->
-        <div>
-        <span class="card-atributes">check in:</span>
-        <span class="card-vales">31-12-2018</span>
-      </div>
-      <div>
-        <span class="card-atributes">check out:</span>
-        <span class="card-vales">31-12-2018</span>
-       </div>
-       <div>
-        <span class="card-atributes">hours:</span>
-        <span class="card-vales">31-12-2018</span>
-        </div>
-        <div>
-        <span class="card-atributes">status:</span>
-        <span class="card-vales">31-12-2018</span>
-        </div>
-</p-card>
-<p-card class="card_body"[style]="{width: '100%'}">
-    <!-- <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
-        quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!</div> -->
-        <div>
-        <span class="card-atributes">check in:</span>
-        <span class="card-vales">31-12-2018</span>
-      </div>
-      <div>
-        <span class="card-atributes">check out:</span>
-        <span class="card-vales">31-12-2018</span>
-       </div>
-       <div>
-        <span class="card-atributes">hours:</span>
-        <span class="card-vales">31-12-2018</span>
-        </div>
-        <div>
-        <span class="card-atributes">status:</span>
-        <span class="card-vales">31-12-2018</span>
-        </div>
-</p-card>
-<p-card class="card_body"[style]="{width: '100%'}">
-    <!-- <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
-        quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!</div> -->
-        <div>
-        <span class="card-atributes">check in:</span>
-        <span class="card-vales">31-12-2018</span>
-      </div>
-      <div>
-        <span class="card-atributes">check out:</span>
-        <span class="card-vales">31-12-2018</span>
-       </div>
-       <div>
-        <span class="card-atributes">hours:</span>
-        <span class="card-vales">31-12-2018</span>
-        </div>
-        <div>
-        <span class="card-atributes">status:</span>
-        <span class="card-vales">31-12-2018</span>
-        </div>
-</p-card>
-<p-card class="card_body"[style]="{width: '100%'}">
-    <!-- <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
-        quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!</div> -->
-        <div>
-        <span class="card-atributes">check in:</span>
-        <span class="card-vales">31-12-2018</span>
-      </div>
-      <div>
-        <span class="card-atributes">check out:</span>
-        <span class="card-vales">31-12-2018</span>
-       </div>
-       <div>
-        <span class="card-atributes">hours:</span>
-        <span class="card-vales">31-12-2018</span>
-        </div>
-        <div>
-        <span class="card-atributes">status:</span>
-        <span class="card-vales">31-12-2018</span>
-        </div>
-</p-card>
-<p-card class="card_body"[style]="{width: '100%'}">
-    <!-- <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
-        quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!</div> -->
-        <div>
-        <span class="card-atributes">check in:</span>
-        <span class="card-vales">31-12-2018</span>
-      </div>
-      <div>
-        <span class="card-atributes">check out:</span>
-        <span class="card-vales">31-12-2018</span>
-       </div>
-       <div>
-        <span class="card-atributes">hours:</span>
-        <span class="card-vales">31-12-2018</span>
-        </div>
-        <div>
-        <span class="card-atributes">status:</span>
-        <span class="card-vales">31-12-2018</span>
-        </div>
-</p-card>
-<p-card class="card_body"[style]="{width: '100%'}">
-    <!-- <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
-        quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!</div> -->
-        <div>
-        <span class="card-atributes">check in:</span>
-        <span class="card-vales">31-12-2018</span>
-      </div>
-      <div>
-        <span class="card-atributes">check out:</span>
-        <span class="card-vales">31-12-2018</span>
-       </div>
-       <div>
-        <span class="card-atributes">hours:</span>
-        <span class="card-vales">31-12-2018</span>
-        </div>
-        <div>
-        <span class="card-atributes">status:</span>
-        <span class="card-vales">31-12-2018</span>
-        </div>
-</p-card>
-<p-card class="card_body"[style]="{width: '100%'}">
-    <!-- <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
-        quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!</div> -->
-        <div>
-        <span class="card-atributes">check in:</span>
-        <span class="card-vales">31-12-2018</span>
-      </div>
-      <div>
-        <span class="card-atributes">check out:</span>
-        <span class="card-vales">31-12-2018</span>
-       </div>
-       <div>
-        <span class="card-atributes">hours:</span>
-        <span class="card-vales">31-12-2018</span>
-        </div>
-        <div>
-        <span class="card-atributes">status:</span>
-        <span class="card-vales">31-12-2018</span>
-        </div>
-</p-card>
-<p-card class="card_body"[style]="{width: '100%'}">
-    <!-- <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
-        quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!</div> -->
-        <div>
-        <span class="card-atributes">check in:</span>
-        <span class="card-vales">31-12-2018</span>
-      </div>
-      <div>
-        <span class="card-atributes">check out:</span>
-        <span class="card-vales">31-12-2018</span>
-       </div>
-       <div>
-        <span class="card-atributes">hours:</span>
-        <span class="card-vales">31-12-2018</span>
-        </div>
-        <div>
-        <span class="card-atributes">status:</span>
-        <span class="card-vales">31-12-2018</span>
-        </div>
-</p-card>
-<p-card class="card_body"[style]="{width: '100%'}">
-    <!-- <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
-        quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!</div> -->
-        <div>
-        <span class="card-atributes">check in:</span>
-        <span class="card-vales">31-12-2018</span>
-      </div>
-      <div>
-        <span class="card-atributes">check out:</span>
-        <span class="card-vales">31-12-2018</span>
-       </div>
-       <div>
-        <span class="card-atributes">hours:</span>
-        <span class="card-vales">31-12-2018</span>
-        </div>
-        <div>
-        <span class="card-atributes">status:</span>
-        <span class="card-vales">31-12-2018</span>
+        <span class="card-vales">{{user.isPresent}}</span>
         </div>
 </p-card>
 
