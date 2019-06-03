@@ -56,7 +56,6 @@ export class AddeditmodelComponent implements OnInit {
   }
 
   task() {
-    debugger;
     let payload = {
       title: this.title,
       description: this.description,

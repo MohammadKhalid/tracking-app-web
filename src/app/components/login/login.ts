@@ -25,6 +25,14 @@ export class login {
     })
   }
   ngOnInit() {
+    if (this.apiservice.userToken) {
+      this.setLoggedIn(true);
+      this.router.navigate([''])
+    }
+    else {
+      this.setLoggedIn(false);
+      this.router.navigate(['login'])
+    }
   }
   go() {
     this.router.navigate(['/register'])
@@ -39,8 +47,10 @@ export class login {
         console.log(res);
         if (res.code == 200) {
           this.setLoggedIn(true);
-          localStorage.setItem('token', res.token);
+          this.apiservice.setUserToken = res.token;
+          // localStorage.setItem('token', res.token);
           this.toaster.success('Successfully login');
+          this.router.navigate(['']);
         } else {
           this.toaster.error(res.message);
         }

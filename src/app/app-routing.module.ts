@@ -1,16 +1,16 @@
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { View } from './components/track/list/view';
-import { Part15Component } from './components/landingpage/part15/part15.component';
 
 @NgModule({
     imports: [
         RouterModule.forRoot([
-             {path: 'login', loadChildren: './components/login/login.module#loginModule'},
-             {path: 'register', loadChildren: './components/register/register.module#registerModule'},
-          
-            {path: 'user/view', loadChildren: './components/user/list/view.module#viewModule'},
-             {path: 'task', loadChildren: './components/task/viewtask/viewtask.module#viewtaskModule'},
+            { path: '', component: View },
+            { path: 'login', loadChildren: './components/login/login.module#loginModule' },
+            { path: 'register', loadChildren: './components/register/register.module#registerModule' },
+
+            { path: 'user/view', loadChildren: './components/user/list/view.module#viewModule' },
+            { path: 'task', loadChildren: './components/task/viewtask/viewtask.module#viewtaskModule' },
             // {path: 'blockui', loadChildren: './components/blockui/blockuidemo.module#BlockUIDemoModule'},
             // {path: 'breadcrumb', loadChildren: './components/breadcrumb/breadcrumbdemo.module#BreadcrumbDemoModule'},
             // {path: 'button', loadChildren: './components/button/buttondemo.module#ButtonDemoModule'},
@@ -96,7 +96,7 @@ import { Part15Component } from './components/landingpage/part15/part15.componen
             // {path: 'tristatecheckbox', loadChildren: './components/tristatecheckbox/tristatecheckboxdemo.module#TriStateCheckboxDemoModule'},
             // {path: 'validation', loadChildren: './components/validation/validationdemo.module#ValidationDemoModule'},
             // {path: 'virtualscroller', loadChildren: './components/virtualscroller/virtualscrollerdemo.module#VirtualScrollerDemoModule'}
-        ], {scrollPositionRestoration: 'enabled'})    
+        ], { scrollPositionRestoration: 'enabled' })
     ],
     exports: [RouterModule]
 })
