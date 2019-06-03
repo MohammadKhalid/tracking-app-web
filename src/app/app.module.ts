@@ -18,8 +18,10 @@ import { View } from './components/track/list/view';
 import { EndpointsService } from './api/endpoints.service';
 import { MapComponent } from './components/track/list/map/map.component';
 import { FilterlistComponent } from './components/track/list/filterlist/filterlist.component';
-
-
+import {CalendarModule} from 'primeng/calendar';
+import {DropdownModule} from 'primeng/dropdown';
+import {ScrollPanelModule} from 'primeng/scrollpanel'; 
+import {GMapModule} from 'primeng/gmap';
 
 
 @NgModule({
@@ -40,9 +42,13 @@ import { FilterlistComponent } from './components/track/list/filterlist/filterli
     ButtonModule,
     StepsModule,
     InputMaskModule,
-
+    CalendarModule,
     FileUploadModule,
     CardModule,
+    DropdownModule,
+    ScrollPanelModule,
+    GMapModule,
+
     ToastrModule.forRoot()
   ],
 
