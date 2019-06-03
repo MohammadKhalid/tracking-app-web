@@ -53,8 +53,7 @@ export class View {
     // this.attendanceRowData = data;
     this.attendanceRowData = {
       userId: this.userId.id,
-      fromDate: moment(this.date1[0]).format('YYYY-MM-DD'),
-      toDate: moment(this.date1[1]).format('YYYY-MM-DD')
+      toDate: data.date
     }
     this.mapEvent.Attendence(this.attendanceRowData)
   }

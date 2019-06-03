@@ -79,16 +79,15 @@ module.exports = {
         try {
             let {userId,date} = req.params
 
-            let checkOutTime = await attendanceModel.findOne({
+            let checkOutTime = await attendanceModel.findAll({
                 attributes: ['checkOutTime'],
                 where:{
                     userId: userId,
                     date: date
                 }
             })
-                console.log(checkOutTime.checkOutTime)
 
-            if(checkOutTime.checkOutTime){
+            if(checkOutTime.length >0 && checkOutTime[0].checkOutTime){
 
                 var trackData = await trackingModel.findAll({
                     where:{
@@ -104,7 +103,7 @@ module.exports = {
             }else{
                 res.send({
                     'message': 'user not checked out.',
-                    'data': checkOutTime,
+                    'data': [],
                     'code': 500
                 })
             }

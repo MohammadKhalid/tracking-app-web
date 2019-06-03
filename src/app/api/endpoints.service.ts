@@ -31,7 +31,7 @@ export class EndpointsService {
     localStorage.setItem('token', data);
   }
   get getUserId() {
-    return JWT(this.userToken()).admin.id;
+    return JWT(this.getAccessToken()).admin.id;
   }
   get getUserName() {
     return JWT(this.getAccessToken()).admin.firstName;
