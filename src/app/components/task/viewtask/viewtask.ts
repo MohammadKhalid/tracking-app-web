@@ -41,7 +41,6 @@ export class viewtask {
   }
 
   List() {
-    debugger;
     let payload = {
       userId: this.userId.id,
       datefrom: moment(this.date1[0]).format('YYYY-MM-DD'),

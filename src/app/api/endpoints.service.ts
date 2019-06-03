@@ -15,10 +15,19 @@ export class EndpointsService {
   private loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   private userLoggedIn = new BehaviorSubject(false);
   constructor(private http: HttpClient) { }
+  getAccessToken() {
+    return this.accessToken = localStorage.getItem('token');
+  }
   get userToken() {
-
-    return JWT(this.accessToken);
-
+    if (this.getAccessToken()) {
+      return JWT(this.accessToken);
+    }
+    else {
+      return "";
+    }
+  }
+  set setUserToken(data) {
+    localStorage.setItem('token', data);
   }
   get getUserId() {
     return JWT(this.accessToken).admin.id;
@@ -64,18 +73,18 @@ export class EndpointsService {
   }
 
 
-  assignTask(payload, token){
+  assignTask(payload, token) {
     let headers = new HttpHeaders().set('Content-Type', 'application/json');
     headers = headers.set('Authorization', 'Bearer ' + token);
-    return this.http.post(this.apiUrl +'task/assignTask',payload,{
-      headers:headers
+    return this.http.post(this.apiUrl + 'task/assignTask', payload, {
+      headers: headers
     })
   }
-  viewtask(payload,token){
+  viewtask(payload, token) {
     let headers = new HttpHeaders().set('Content-Type', 'application/json');
     headers = headers.set('Authorization', 'Bearer ' + token);
-    return this.http.get(this.apiUrl +`task/viewEmployeeTask/${payload.datefrom}/${payload.dateto}/${payload.user}`, {
-      headers : headers
+    return this.http.get(this.apiUrl + `task/viewEmployeeTask/${payload.datefrom}/${payload.dateto}/${payload.user}`, {
+      headers: headers
     })
   }
   edittask(payload) {
