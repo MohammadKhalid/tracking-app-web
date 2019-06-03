@@ -16,14 +16,14 @@ module.exports = {
                 }
             })
 
-            if (attendanceCount >= 1 && type == "checkedIn")
+            if (attendanceCount >= 1 && type == "CheckedIn")
                 return res.send({
                     'message': 'Attendance already marked.',
                     'data': '',
                     'code': 500
                 })
 
-            if (attendanceCount == 1 && type == 'checkedOut') {
+            if (attendanceCount == 1 && type == 'CheckedOut') {
                 attendenceUpdate = await attendanceModel.update({
                     checkOutTime: time,
                     isPresent: 1
