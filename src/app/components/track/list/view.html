@@ -1,52 +1,54 @@
 <div class="content-section introduction">
 
-        <div class="p-grid">
-          <div class="p-col-6">
+    <div class="p-grid">
+        <div class="p-col-6">
             <h4 class="feature-title">Tasks & Tracking</h4>
-          </div>
-          <div class="p-col-6 text-right">
+        </div>
+        <div class="p-col-6 text-right">
             <!-- <button (click)="show()" pButton type="button" label="back"
               class="ui-button-rounded p-col-align-end"></button> -->
-          </div>
-      
-        </div>
-      
-      </div>
-
-
-    
-
-
-
-    <div class="ui-g">
-            <div class="ui-sm-12 ui-md-5 ui-lg-5">
-                    <div class="ui-g-4">
-                            Date
-                        </div>
-                        <div class="ui-g-4">
-                                <p-calendar class="range-calender"   [(ngModel)]="rangeDates" selectionMode="range" [readonlyInput]="true"></p-calendar>
-                        </div>  
-           </div>
-            <div class="ui-sm-12 ui-md-5 ui-lg-5"> 
-                    <div class="ui-g-4">
-                            Rider List
-                        </div>
-                        <div class="ui-g-4">
-                                
-                                <p-dropdown [options]="users" placeholder="Select a User" optionLabel="firstName" [(ngModel)]="userId">
-                                    </p-dropdown>
-                         </div>
-            </div>
-            <div class="ui-sm-12 ui-md-2 ui-lg-2">
-                    <button pButton type="button" label="Search" class="ui-button-rounded track-save-btn"></button>
-
-            </div>
         </div>
 
+    </div>
+
+</div>
 
 
 
-        
+
+
+
+<div class="ui-g">
+    <div class="ui-sm-12 ui-md-5 ui-lg-5">
+        <div class="ui-g-4">
+            Date
+        </div>
+        <div class="ui-g-4">
+            <p-calendar [(ngModel)]="date1"  placeholder="Select a Date" selectionMode="range" [readonlyInput]="true"></p-calendar>
+        </div>
+    </div>
+    <div class="ui-sm-12 ui-md-5 ui-lg-5">
+        <div class="ui-g-4">
+            Rider List
+        </div>
+        <div class="ui-g-4">
+
+
+            <p-dropdown [options]="users" optionLabel="firstName" [(ngModel)]="userId" filter="true">
+
+            </p-dropdown>
+        </div>
+    </div>
+    <div class="ui-sm-12 ui-md-2 ui-lg-2">
+        <button pButton type="button" label="Search" (click) = "getAttendance()" class="ui-button-rounded track-save-btn"></button>
+
+    </div>
+</div>
+
+
+
+
+
 <!-- <div class="p-grid p-justify-center">
     <div class="p-lg-5 p-col-align-start ">
         <div class="box"> 
@@ -86,35 +88,32 @@
 <!-- filter component end -->
 <!-- <div class="ui-g">
         <div class="ui-g-6 ui-md-4 ui-lg-3"> -->
- <!-- filterlist component start -->
+<!-- filterlist component start -->
 <!-- <app-filterlist></app-filterlist> -->
 <!-- filterlist component end -->
-        <!-- </div>
+<!-- </div>
         <div class="ui-g-12 ui-md-8 ui-lg-9"> -->
-            <!-- googlemap component start -->
+<!-- googlemap component start -->
 <!-- <app-map></app-map> -->
 <!-- googlemap component end -->
-            
-        <!-- </div>
+
+<!-- </div>
        
     </div>
      -->
 
-    <div class="p-grid search-part-grid ">
-            <div class="p-col-12  p-md-4 p-lg-3 p-col-align-center list">
-                <div class="box"> 
-                    
-                        <app-filterlist></app-filterlist>       
-                </div>
-            </div>
-            <div class="p-col-12 p-md-8 p-lg-9 p-col-align-center">
-                <div class="box">  
-                  
-                        <app-map></app-map>       
-                            
-            </div>
-            
+<div class="p-grid search-part-grid ">
+    <div class="p-col-12  p-md-4 p-lg-3 p-col-align-center list">
+        <div class="box">
+
+            <app-filterlist [userAttendance]= "userAttendance" (attendanceEvent)="attendanceEvent($event)"></app-filterlist>
         </div>
-        
+    </div>
+    <div class="p-col-12 p-md-8 p-lg-9 p-col-align-center">
+        <div class="box">
 
+            <app-map [attendanceRowData] = "attendanceRowData" (mapEvent)="sendMaptoParent()"></app-map>
 
+        </div>
+
+    </div>

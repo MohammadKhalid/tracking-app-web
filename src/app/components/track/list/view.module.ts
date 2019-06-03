@@ -12,6 +12,7 @@ import {PaginatorModule} from 'primeng/paginator';
 import {DialogModule} from 'primeng/dialog';
 import {DynamicDialogModule} from 'primeng/dynamicdialog';
 
+import { AgmCoreModule } from '@agm/core';
 
 import { View } from './view';
 import { MapComponent } from './map/map.component';
@@ -30,7 +31,10 @@ import { FilterlistComponent } from './filterlist/filterlist.component';
     TableModule,
     PaginatorModule,
     DialogModule,
-    DynamicDialogModule
+    DynamicDialogModule,
+    // AgmCoreModule.forRoot({
+    //   apiKey:'AIzaSyAohZ7btYPVl4_ABdRmMOO7t2Jo9cQF7s4'
+    // }),
     
     
   ],
