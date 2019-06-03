@@ -13,23 +13,13 @@ import * as JWT from 'jwt-decode';
 export class View {
 
     display: boolean = false;
-    cars: SelectItem[];
-  constructor() { }
+    users : [];
+  constructor(private authservice : EndpointsService) { }
  
   ngOnInit() {
-    this.cars = [
-      {label: 'Audi', value: 'Audi'},
-      {label: 'BMW', value: 'BMW'},
-      {label: 'Fiat', value: 'Fiat'},
-      {label: 'Ford', value: 'Ford'},
-      {label: 'Honda', value: 'Honda'},
-      {label: 'Jaguar', value: 'Jaguar'},
-      {label: 'Mercedes', value: 'Mercedes'},
-      {label: 'Renault', value: 'Renault'},
-      {label: 'VW', value: 'VW'},
-      {label: 'Volvo', value: 'Volvo'}
-  ];
+    this.authservice.viewalluser(this.authservice.accessToken, this.authservice.getUserId).subscribe((res: any) => {
+      this.users = res.data
+    })
+ 
 
-  }
-
-}
+  }}
