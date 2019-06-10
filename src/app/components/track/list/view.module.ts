@@ -5,18 +5,19 @@ import { ViewRoutingModule } from './view-routing.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { InputMaskModule } from 'primeng/inputmask';
-import {FileUploadModule} from 'primeng/fileupload';
-import {InputTextModule} from 'primeng/inputtext';
-import {TableModule} from 'primeng/table';
-import {PaginatorModule} from 'primeng/paginator';
-import {DialogModule} from 'primeng/dialog';
-import {DynamicDialogModule} from 'primeng/dynamicdialog';
+import { FileUploadModule } from 'primeng/fileupload';
+import { InputTextModule } from 'primeng/inputtext';
+import { TableModule } from 'primeng/table';
+import { PaginatorModule } from 'primeng/paginator';
+import { DialogModule } from 'primeng/dialog';
+import { DynamicDialogModule } from 'primeng/dynamicdialog';
 
 import { AgmCoreModule } from '@agm/core';
 
 import { View } from './view';
 import { MapComponent } from './map/map.component';
 import { FilterlistComponent } from './filterlist/filterlist.component';
+import { TrackService } from '../track.service';
 
 @NgModule({
   declarations: [View, MapComponent, FilterlistComponent],
@@ -27,7 +28,7 @@ import { FilterlistComponent } from './filterlist/filterlist.component';
     FileUploadModule,
     InputTextModule,
     ReactiveFormsModule,
-    FormsModule ,
+    FormsModule,
     TableModule,
     PaginatorModule,
     DialogModule,
@@ -35,9 +36,8 @@ import { FilterlistComponent } from './filterlist/filterlist.component';
     // AgmCoreModule.forRoot({
     //   apiKey:'AIzaSyAohZ7btYPVl4_ABdRmMOO7t2Jo9cQF7s4'
     // }),
-    
-    
   ],
-  entryComponents:[]
+  providers: [TrackService],
+  entryComponents: []
 })
 export class viewModule { }

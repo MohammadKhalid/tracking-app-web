@@ -65,18 +65,13 @@ export class EndpointsService {
   setLoggedIn(val: boolean) {
     this.userLoggedIn.next(val);
   }
-  // Adminlogin(user) {
-  //   return this.http.post(this.apiUrl + `admin/login`, user);
 
-  // }
   logout() {
-    // this.loggedIn.next(false);
+    
     localStorage.removeItem('token');
 
   }
-  // adminReg(payload) {
-  //   return this.http.post(this.apiUrl + 'admin/register', payload);
-  // }
+ 
 
   adduser(payload) {
     return this.http.post(this.apiUrl + 'user/create', payload)
@@ -114,18 +109,19 @@ export class EndpointsService {
     return this.http.put(this.apiUrl + `task/editTask/${payload.id}`, payload)
   }
 
-  getAttendance(payload, token) {
-    let headers = new HttpHeaders().set('Content-Type', 'application/json');
-    headers = headers.set('Authorization', 'Bearer ' + token);
-    return this.http.get(this.apiUrl + `attendance/getAttendance/${payload.userId}/${payload.fromDate}/${payload.toDate}`, {
-      headers: headers
-    })
-  }
-  viewEmployeeTrack(payload, token) {
-    let headers = new HttpHeaders().set('Content-Type', 'application/json');
-    headers = headers.set('Authorization', 'Bearer ' + token);
-    return this.http.get(`${this.apiUrl}tracking/getUserTrack/${payload.userId}/${payload.toDate}`, {
-      headers: headers
-    })
-  }
+  // getAttendance(payload, token) {
+  //   let headers = new HttpHeaders().set('Content-Type', 'application/json');
+  //   headers = headers.set('Authorization', 'Bearer ' + token);
+  //   return this.http.get(this.apiUrl + `attendance/getAttendance/${payload.userId}/${payload.fromDate}/${payload.toDate}`, {
+  //     headers: headers
+  //   })
+  // }
+
+  // viewEmployeeTrack(payload, token) {
+  //   let headers = new HttpHeaders().set('Content-Type', 'application/json');
+  //   headers = headers.set('Authorization', 'Bearer ' + token);
+  //   return this.http.get(`${this.apiUrl}tracking/getUserTrack/${payload.userId}/${payload.toDate}`, {
+  //     headers: headers
+  //   })
+  // }
 }

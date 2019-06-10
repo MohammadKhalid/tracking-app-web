@@ -6,14 +6,11 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./filterlist.component.css']
 })
 export class FilterlistComponent implements OnInit {
-@Input()userAttendance: any
-@Output() attendanceEvent = new EventEmitter<string>();
+  @Input() userAttendance: any
+  @Output() attendanceEvent = new EventEmitter<string>();
   constructor() { }
-
-  ngOnInit() {
-
-  }
-  sendAttendancetoParent(user){
+  ngOnInit() { }
+  sendAttendancetoParent(user) {
     this.attendanceEvent.next(user);
   }
 }
