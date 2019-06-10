@@ -1,52 +1,66 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { AdminloginComponent } from './admin/adminlogin/adminlogin.component';
-import { AdminpanelComponent } from './admin/adminpanel/adminpanel.component';
-import { NotfoundComponent } from './admin/notfound/notfound.component';
-import { AngularModule } from './modules/angularmaterials/angular/angular.module';
-import { BrowserAnimationsModule} from '@angular/platform-browser/animations'
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { AdminservicesService } from './admin/adminAuthservice/adminservices.service';
-import { ToastrService } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { AppRoutingModule } from './app-routing.module';
 import { ToastrModule } from 'ngx-toastr';
-import { AdduserComponent } from './admin/adminpanel/adduser/adduser.component';
-import { AlluserComponent } from './admin/adminpanel/alluser/alluser.component';
-import { AssignScheduleComponent } from './admin/adminpanel/schedules/assign-schedule/assign-schedule.component';
 
-
-
-
-
-
-
+import { ButtonModule } from 'primeng/button';
+import { FileUploadModule } from 'primeng/fileupload';
+import { CardModule } from 'primeng/card';
+import { AppComponent } from './app.component';
+import { HomeComponent } from './components/home/home.component';
+import { StepsModule } from 'primeng/steps';
+import { InputMaskModule } from 'primeng/inputmask';
+import { View } from './components/track/list/view';
+import { EndpointsService } from './api/endpoints.service';
+import { MapComponent } from './components/track/list/map/map.component';
+import { FilterListComponent } from './components/track/list/filterList/filterList.component';
+import {CalendarModule} from 'primeng/calendar';
+import {DropdownModule} from 'primeng/dropdown';
+import {ScrollPanelModule} from 'primeng/scrollpanel'; 
+import {GMapModule} from 'primeng/gmap';
+import { AgmCoreModule } from '@agm/core';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    AdminloginComponent,
-    AdminpanelComponent,
-    NotfoundComponent,
-    AdduserComponent,
-    AlluserComponent,
-    AssignScheduleComponent
+    HomeComponent,
+    View,
+    MapComponent,
+    FilterListComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule,
-    AngularModule,
-    BrowserAnimationsModule,
     ReactiveFormsModule,
+    AppRoutingModule,
     HttpClientModule,
-    ToastrModule.forRoot()
+    BrowserAnimationsModule,
+    ButtonModule,
+    StepsModule,
+    InputMaskModule,
+    CalendarModule,
+    FileUploadModule,
+    CardModule,
+    DropdownModule,
+    ScrollPanelModule,
+    GMapModule, 
+     AgmCoreModule.forRoot({
+      apiKey:'AIzaSyAohZ7btYPVl4_ABdRmMOO7t2Jo9cQF7s4'
+    }),
     
+
+    ToastrModule.forRoot()
   ],
-  providers: [AdminservicesService,ToastrService],
+
+  providers: [
+    { provide: LocationStrategy, useClass: HashLocationStrategy, },
+    EndpointsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,3 +1,67 @@
+<div class="layout-wrapper">
+
+    <div id="layout-topbar" *ngIf="userLoggedIn">
+        <a href="#" class="menu-button" (click)="onMenuButtonClick($event)">
+            <i class="pi pi-bars"></i>
+        </a>
+
+        <a href="#" class="logo" [routerLink]="['/']">
+            <img alt="logo" src="assets/showcase/images/logo.png" />
+        </a>
+
+        <ul class="topbar-menu">
+
+            <li class="topbar-menu-themes">
+                <a href="#">{{userName}}</a>
+                <ul>
+                    <li>
+                        <a [routerLink]="['./login']" (click)="logout();">
+                            <span class="topbar-submenu-icon fa fa-book"></span>
+                            Logout</a>
+                    </li>
+                </ul>
+            </li>
 
 
-<router-outlet></router-outlet>
+        </ul>
+    </div>
+    <div id="layout-sidebar" [ngClass]="{'active': menuActive}" *ngIf="userLoggedIn">
+        <div class="layout-menu">
+
+            <a [routerLink]="['']" id="button_menutrack" #buttonmenutrack
+                [class.active-menuitem]="buttonmenutrack.id == activeMenuId"
+                (click)="activeMenuId = (activeMenuId === buttonmenutrack.id ? null : buttonmenutrack.id)">
+                <img src="assets/showcase/images/icons/button-active.svg" class="layout-menu-icon-active" />
+                <img src="assets/showcase/images/icons/button.svg" class="layout-menu-icon-inactive" />
+                <span>TRACKING</span>
+            </a>
+
+            <a [routerLink]="['user/view']" id="button_menuuser" #buttonmenuusers
+                [class.active-menuitem]="buttonmenuusers.id == activeMenuId"
+                (click)="activeMenuId = (activeMenuId === buttonmenuusers.id ? null : buttonmenuusers.id)">
+                <img src="assets/showcase/images/icons/button-active.svg" class="layout-menu-icon-active" />
+                <img src="assets/showcase/images/icons/button.svg" class="layout-menu-icon-inactive" />
+                <span>USERS</span>
+            </a>
+
+            <a [routerLink]="['task/view']" id="button_menutask" #buttonmenutask
+                [class.active-menuitem]="buttonmenutask.id == activeMenuId"
+                (click)="activeMenuId = (activeMenuId === buttonmenutask.id ? null : buttonmenutask.id)">
+                <img src="assets/showcase/images/icons/button-active.svg" class="layout-menu-icon-active" />
+                <img src="assets/showcase/images/icons/button.svg" class="layout-menu-icon-inactive" />
+                <span>TASK</span>
+            </a>
+
+        </div>
+    </div>
+
+    <div class="layout-mask" *ngIf="menuActive">
+    </div>
+
+    <div [ngClass]="{'layout-content': userLoggedIn}">
+        <div>
+            <router-outlet></router-outlet>
+        </div>
+
+
+    </div>
