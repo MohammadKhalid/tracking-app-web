@@ -1,10 +1,17 @@
 const sequelize = require('sequelize');
+require('dotenv').config()
 
+let db_name = process.env.DB_NAME;
+let user = process.env.DB_USER;
+let password = process.env.DB_PASSWORD;
+let host = process.env.DB_HOST;
+let dialect = process.env.DB_DIALECT;
+let db_port = process.env.DB_PORT;
 
-module.exports = new sequelize('hrm1','newuser', '!roots123', {
-    host :'192.168.0.105',
-    port : '3306',
-    dialect :'mysql',
+module.exports = new sequelize(db_name,user, password, {
+    host :host,
+    port : db_port,
+    dialect :dialect,
     operatorsAliases : false,
     pool : {
         max: 5 ,
