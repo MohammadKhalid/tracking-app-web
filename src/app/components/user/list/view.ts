@@ -4,9 +4,10 @@ import { FormControl, Validators, FormBuilder, FormGroup } from '@angular/forms'
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { EndpointsService } from 'src/app/api/endpoints.service';
-import * as JWT from 'jwt-decode';
 import { DialogService } from 'primeng/api';
 import { AddeditmodelComponent } from './addeditmodel/addeditmodel.component';
+import { TaskService } from '../../task/task.service';
+import { UserService } from '../user.service';
 
 
 @Component({
@@ -20,24 +21,21 @@ export class view {
   users: [];
   columns = [];
   display: boolean = false;
-  constructor(private dialogService: DialogService, private toaster: ToastrService, private authService: EndpointsService, private router: Router, private formbuilder: FormBuilder) { }
+  constructor(private dialogService: DialogService,
+     private toaster: ToastrService,
+      private globalService: EndpointsService,
+      private userService: UserService,
+      private taskSerive: TaskService,
+       private router: Router,
+        private formbuilder: FormBuilder) { }
 
   ngOnInit() {
-    if (!this.authService.userToken) {
-      this.setLoggedIn(false);
-      this.router.navigate(['login'])
-    }
-    else {
-      this.getList();
-    }
-  }
-
-  private setLoggedIn(value: boolean): void {
-    this.authService.setLoggedIn(value);
+      this.globalService.authorizeUser();
+      this. getList();
   }
 
   getList() {
-    this.authService.viewalluser(this.authService.userToken, this.authService.getUserId).subscribe((res: any) => {
+    this.taskSerive.viewalluser(this.globalService.userToken, this.globalService.getUserId).subscribe((res: any) => {
       this.users = res.data;
       this.columns = [
         { field: 'S.no', header: 'S.no' },

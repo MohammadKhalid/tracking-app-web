@@ -5,6 +5,7 @@ import { EndpointsService } from 'src/app/api/endpoints.service';
 import { ToastrService } from 'ngx-toastr';
 import { DynamicDialogRef, DynamicDialogConfig } from 'primeng/api';
 import * as moment from 'moment/moment';
+import { TaskService } from '../../task.service';
 
 @Component({
   selector: 'app-addeditmodel',
@@ -14,7 +15,8 @@ import * as moment from 'moment/moment';
 export class AddeditmodelComponent implements OnInit {
   addUserform: FormGroup
   constructor(private router: Router,
-    private services: EndpointsService,
+    private globalServices: EndpointsService,
+    private taskService: TaskService,
     private formbuilder: FormBuilder,
     private toaster: ToastrService,
     public ref: DynamicDialogRef,
@@ -29,15 +31,11 @@ export class AddeditmodelComponent implements OnInit {
   isEdit: boolean = false;
   users: []
   ngOnInit() {
-    this.services.viewalluser(this.services.userToken, this.services.getUserId).subscribe((res: any) => {
+    this.taskService.viewalluser(this.globalServices.userToken, this.globalServices.getUserId).subscribe((res: any) => {
       this.users = res.data;
-
-
-
     })
 
-    this.token = this.services.getUserId;
-    debugger;
+    this.token = this.globalServices.getUserId;
     if (this.config.data) {
       this.title = this.config.data.title;
       this.userId = this.config.data.userId;
@@ -64,7 +62,7 @@ export class AddeditmodelComponent implements OnInit {
       id: this.id
     }
     if (this.id) {
-      this.services.edittask(payload).subscribe((res: any) => {
+      this.taskService.edittask(payload).subscribe((res: any) => {
         if (res.code == 200) {
           this.toaster.success(res.message);
           this.ref.close()
@@ -74,7 +72,7 @@ export class AddeditmodelComponent implements OnInit {
       })
     }
     else {
-      this.services.assignTask(payload, this.services.userToken).subscribe((res: any) => {
+      this.taskService.assignTask(payload, this.globalServices.userToken).subscribe((res: any) => {
         if (res.code == 200) {
           this.toaster.success(res.message);
           console.log(res.data);
@@ -86,9 +84,6 @@ export class AddeditmodelComponent implements OnInit {
       })
     }
 
-    // this.services.edittask(payload).subscribe((res : any)=> {
-    //   console.log('edit', res)
-    // })
   }
 }
 

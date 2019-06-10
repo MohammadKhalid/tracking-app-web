@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { EndpointsService } from 'src/app/api/endpoints.service';
 import { ToastrService } from 'ngx-toastr';
 import { DynamicDialogRef, DynamicDialogConfig } from 'primeng/api';
+import { UserService } from '../../user.service';
 
 
 @Component({
@@ -14,7 +15,8 @@ import { DynamicDialogRef, DynamicDialogConfig } from 'primeng/api';
 export class AddeditmodelComponent implements OnInit {
   addUserform: FormGroup
   constructor(private router: Router,
-    private services: EndpointsService,
+    private globalservice: EndpointsService,
+    private userSeruvce: UserService,
     private formbuilder: FormBuilder,
     private toaster: ToastrService,
     public ref: DynamicDialogRef,
@@ -24,7 +26,7 @@ export class AddeditmodelComponent implements OnInit {
   isEdit: boolean = false;
 
   ngOnInit() {
-    this.token = this.services.getUserId;
+    this.token = this.globalservice.getUserId;
 
     // this.btnTxt =
     this.addUserform = this.formbuilder.group({
@@ -60,7 +62,7 @@ export class AddeditmodelComponent implements OnInit {
     console.log(this.addUserform.value);
     if (this.addUserform.valid) {
       if (this.addUserform.value.id == "") {
-        this.services.adduser(this.addUserform.value).subscribe((res: any) => {
+        this.userSeruvce.adduser(this.addUserform.value).subscribe((res: any) => {
           if (res.code == 200) {
             this.toaster.success(res.message);
             this.ref.close()
@@ -70,7 +72,7 @@ export class AddeditmodelComponent implements OnInit {
         })
       }
       else {
-        this.services.editemployee(this.addUserform.value).subscribe((res: any) => {
+        this.userSeruvce.editemployee(this.addUserform.value).subscribe((res: any) => {
           if (res.code == 200) {
             this.toaster.success(res.message);
             this.ref.close()

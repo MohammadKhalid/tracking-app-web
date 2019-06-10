@@ -1,18 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { Component } from '@angular/core';
 
-import { ToastrService } from 'ngx-toastr';
-import { Router } from '@angular/router';
 import { EndpointsService } from 'src/app/api/endpoints.service';
-import * as JWT from 'jwt-decode';
 import { DialogService } from 'primeng/api';
 import { AddeditmodelComponent } from './addeditmodel/addeditmodel.component';
 import * as moment from 'moment/moment';
-
-
-
-
-
+import { TaskService } from '../task.service';
 
 @Component({
   templateUrl: './viewtask.html',
@@ -30,11 +22,14 @@ export class viewtask {
 
   userId: any;
   display: boolean = false;
-  constructor(private dialogService: DialogService, private toaster: ToastrService, private authService: EndpointsService, private router: Router, private formbuilder: FormBuilder) { }
+  constructor(private dialogService: DialogService,
+    private globalService: EndpointsService,
+    private taskService: TaskService) { }
 
   ngOnInit() {
-    this.authService.authorizeUser();
-    this.authService.viewalluser(this.authService.accessToken, this.authService.getUserId).subscribe((res: any) => {
+    debugger;
+    this.globalService.authorizeUser();
+    this.taskService.viewalluser(this.globalService.accessToken, this.globalService.getUserId).subscribe((res: any) => {
       this.users = res.data
     })
   }
@@ -47,7 +42,7 @@ export class viewtask {
     }
     console.log(payload)
 
-    this.authService.viewtask(payload, this.authService.userToken).subscribe((res: any) => {
+    this.taskService.viewtask(payload, this.globalService.userToken).subscribe((res: any) => {
       this.view = res.data;
       console.log(res)
       this.columns = [

@@ -20,28 +20,29 @@ export class AppComponent implements OnInit {
     private userLoggedIn: boolean;
     private subscription: Subscription;
     private userName: string;
-    constructor(private router: Router, private services: EndpointsService) { }
+    constructor(private router: Router, private globalservices: EndpointsService) { }
 
     // If user is logged in or not, set value to true or false
     private setLoggedIn(value: boolean): void {
-        this.services.setLoggedIn(value);
+        this.globalservices.setLoggedIn(value);
     }
     ngOnInit() {
-        this.userName = this.services.getUserName;
+        this.userName = this.globalservices.getUserName;
         //get status user loggedin or not
-        this.subscription = this.services.getLoggedIn().subscribe(value => {
+        this.subscription = this.globalservices.getLoggedIn().subscribe(value => {
             this.userLoggedIn = value;
         });
-        if (this.services.userToken) {
-            this.setLoggedIn(true);
-            this.router.navigate([''])
-        }
-        else {
-            if (!(this.router.url == 'login' || this.router.url == 'register')) {
-                this.router.navigate(['login'])
-            }
-            this.setLoggedIn(false);
-        }
+        this.globalservices.authorizeUser();
+        // if (this.services.userToken) {
+        //     this.setLoggedIn(true);
+        //     this.router.navigate([''])
+        // }
+        // else {
+        //     if (!(this.router.url == 'login' || this.router.url == 'register')) {
+        //         this.router.navigate(['login'])
+        //     }
+        //     this.setLoggedIn(false);
+        // }
         let routes = this.router.config;
         for (let route of routes) {
             if (route.path && route.path !== "datatable" && route.path !== "datagrid" && route.path !== "datalist" && route.path !== "datascroller" && route.path !== "growl")
@@ -51,7 +52,7 @@ export class AppComponent implements OnInit {
 
     logout() {
         this.setLoggedIn(false);
-        this.services.setUserToken = "";
+        this.globalservices.setUserToken = "";
 
         // this.services.getAccessToken();
         this.router.navigate(['login']);

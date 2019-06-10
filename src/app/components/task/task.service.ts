@@ -5,10 +5,18 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class TrackService {
+export class TaskService {
   apiUrl = environment.baseURl;
 
   constructor(private http: HttpClient) { }
+
+  viewtask(payload, token) {
+    let headers = new HttpHeaders().set('Content-Type', 'application/json');
+    headers = headers.set('Authorization', 'Bearer ' + token);
+    return this.http.get(this.apiUrl + `task/viewEmployeeTask/${payload.datefrom}/${payload.dateto}/${payload.userId}`, {
+      headers: headers
+    })
+  }
 
   viewalluser(token, id) {
     let headers = new HttpHeaders().set('Content-Type', 'application/json');
@@ -17,18 +25,14 @@ export class TrackService {
       headers: headers
     })
   }
-  getAttendance(payload, token) {
+  assignTask(payload, token) {
     let headers = new HttpHeaders().set('Content-Type', 'application/json');
     headers = headers.set('Authorization', 'Bearer ' + token);
-    return this.http.get(this.apiUrl + `attendance/getAttendance/${payload.userId}/${payload.fromDate}/${payload.toDate}`, {
+    return this.http.post(this.apiUrl + 'task/assignTask', payload, {
       headers: headers
     })
   }
-  viewEmployeeTrack(payload, token) {
-    let headers = new HttpHeaders().set('Content-Type', 'application/json');
-    headers = headers.set('Authorization', 'Bearer ' + token);
-    return this.http.get(`${this.apiUrl}tracking/getUserTrack/${payload.userId}/${payload.toDate}`, {
-      headers: headers
-    })
+  edittask(payload) {
+    return this.http.put(this.apiUrl + `task/editTask/${payload.id}`, payload)
   }
 }

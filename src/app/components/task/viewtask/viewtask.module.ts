@@ -21,6 +21,7 @@ import {CalendarModule} from 'primeng/calendar';
 import { viewtaskRoutingModule } from './viewtask-routing.module';
 import { viewtask } from './viewtask';
 import { AddeditmodelComponent } from './addeditmodel/addeditmodel.component';
+import { TaskService } from '../task.service';
 
 
 
@@ -43,10 +44,8 @@ import { AddeditmodelComponent } from './addeditmodel/addeditmodel.component';
     SplitButtonModule,
     DropdownModule,
     CalendarModule
-
-    
-    
   ],
+  providers:[TaskService],
   entryComponents:[AddeditmodelComponent]
 })
 export class viewtaskModule { }

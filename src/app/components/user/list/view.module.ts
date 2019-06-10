@@ -5,16 +5,18 @@ import { viewRoutingModule } from './view-routing.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { InputMaskModule } from 'primeng/inputmask';
-import {FileUploadModule} from 'primeng/fileupload';
-import {InputTextModule} from 'primeng/inputtext';
-import {TableModule} from 'primeng/table';
-import {PaginatorModule} from 'primeng/paginator';
-import {DialogModule} from 'primeng/dialog';
-import {DynamicDialogModule} from 'primeng/dynamicdialog';
+import { FileUploadModule } from 'primeng/fileupload';
+import { InputTextModule } from 'primeng/inputtext';
+import { TableModule } from 'primeng/table';
+import { PaginatorModule } from 'primeng/paginator';
+import { DialogModule } from 'primeng/dialog';
+import { DynamicDialogModule } from 'primeng/dynamicdialog';
 
 
 import { view } from './view';
 import { AddeditmodelComponent } from './addeditmodel/addeditmodel.component';
+import { TaskService } from '../../task/task.service';
+import { UserService } from '../user.service';
 
 
 
@@ -28,14 +30,15 @@ import { AddeditmodelComponent } from './addeditmodel/addeditmodel.component';
     FileUploadModule,
     InputTextModule,
     ReactiveFormsModule,
-    FormsModule ,
+    FormsModule,
     TableModule,
     PaginatorModule,
     DialogModule,
     DynamicDialogModule
-    
-    
+
+
   ],
-  entryComponents:[AddeditmodelComponent]
+  providers: [TaskService, UserService],
+  entryComponents: [AddeditmodelComponent]
 })
 export class viewModule { }

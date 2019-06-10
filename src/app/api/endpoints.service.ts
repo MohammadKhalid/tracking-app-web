@@ -19,8 +19,11 @@ export class EndpointsService {
     private router: Router) { }
   authorizeUser() {
     if (this.userToken) {
+   
+       if(this.router.url == "/login" || this.router.url == "/register"){
+        this.router.navigate(['']);
+      }
       this.setLoggedIn(true);
-      this.router.navigate(['']);
     }
     else {
       if (!(this.router.url == "/login" || this.router.url == "/register")) {
@@ -67,61 +70,6 @@ export class EndpointsService {
   }
 
   logout() {
-    
-    localStorage.removeItem('token');
-
+        localStorage.removeItem('token');
   }
- 
-
-  adduser(payload) {
-    return this.http.post(this.apiUrl + 'user/create', payload)
-  }
-
-  editemployee(payload) {
-    return this.http.put(this.apiUrl + `user/editemployee/${payload.id}`, payload)
-  }
-
-  viewalluser(token, id) {
-    let headers = new HttpHeaders().set('Content-Type', 'application/json');
-    headers = headers.set('Authorization', 'Bearer ' + token);
-    return this.http.get(`${this.apiUrl}user/viewAllEmployee/${id}`, {
-      headers: headers
-    })
-  }
-
-
-  assignTask(payload, token) {
-    let headers = new HttpHeaders().set('Content-Type', 'application/json');
-    headers = headers.set('Authorization', 'Bearer ' + token);
-    return this.http.post(this.apiUrl + 'task/assignTask', payload, {
-      headers: headers
-    })
-  }
-  viewtask(payload, token) {
-    let headers = new HttpHeaders().set('Content-Type', 'application/json');
-    headers = headers.set('Authorization', 'Bearer ' + token);
-    return this.http.get(this.apiUrl + `task/viewEmployeeTask/${payload.datefrom}/${payload.dateto}/${payload.userId}`, {
-      headers: headers
-    })
-  }
-  edittask(payload) {
-    debugger;
-    return this.http.put(this.apiUrl + `task/editTask/${payload.id}`, payload)
-  }
-
-  // getAttendance(payload, token) {
-  //   let headers = new HttpHeaders().set('Content-Type', 'application/json');
-  //   headers = headers.set('Authorization', 'Bearer ' + token);
-  //   return this.http.get(this.apiUrl + `attendance/getAttendance/${payload.userId}/${payload.fromDate}/${payload.toDate}`, {
-  //     headers: headers
-  //   })
-  // }
-
-  // viewEmployeeTrack(payload, token) {
-  //   let headers = new HttpHeaders().set('Content-Type', 'application/json');
-  //   headers = headers.set('Authorization', 'Bearer ' + token);
-  //   return this.http.get(`${this.apiUrl}tracking/getUserTrack/${payload.userId}/${payload.toDate}`, {
-  //     headers: headers
-  //   })
-  // }
-}
+ }
