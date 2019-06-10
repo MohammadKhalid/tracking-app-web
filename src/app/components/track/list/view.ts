@@ -24,14 +24,7 @@ export class View {
     private router: Router) { }
 
   ngOnInit() {
-    if (this.authService.userToken) {
-      this.setLoggedIn(true);
-      this.router.navigate([''])
-    }
-    else {
-      this.setLoggedIn(false);
-      this.router.navigate(['login'])
-    }
+    this.authService.authorizeUser();
     this.authService.viewalluser(this.authService.getAccessToken(), this.authService.getUserId).subscribe((res: any) => {
       this.users = res.data
     })

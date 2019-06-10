@@ -6,8 +6,8 @@ import { View } from './components/track/list/view';
     imports: [
         RouterModule.forRoot([
             { path: '', component: View },
-            { path: 'login', loadChildren: './components/login/login.module#loginModule' },
-            { path: 'register', loadChildren: './components/register/register.module#registerModule' },
+            { path: 'login', loadChildren: './public/login/login.module#loginModule' },
+            { path: 'register', loadChildren: './public/register/register.module#registerModule' },
             { path: 'user/view', loadChildren: './components/user/list/view.module#viewModule' },
             { path: 'task/view', loadChildren: './components/task/viewtask/viewtask.module#viewtaskModule' },
              ], { scrollPositionRestoration: 'enabled' })

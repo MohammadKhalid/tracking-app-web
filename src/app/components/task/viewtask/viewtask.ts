@@ -33,6 +33,7 @@ export class viewtask {
   constructor(private dialogService: DialogService, private toaster: ToastrService, private authService: EndpointsService, private router: Router, private formbuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.authService.authorizeUser();
     this.authService.viewalluser(this.authService.accessToken, this.authService.getUserId).subscribe((res: any) => {
       this.users = res.data
     })

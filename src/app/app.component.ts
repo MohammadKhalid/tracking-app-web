@@ -37,8 +37,10 @@ export class AppComponent implements OnInit {
             this.router.navigate([''])
         }
         else {
+            if (!(this.router.url == 'login' || this.router.url == 'register')) {
+                this.router.navigate(['login'])
+            }
             this.setLoggedIn(false);
-            this.router.navigate(['login'])
         }
         let routes = this.router.config;
         for (let route of routes) {

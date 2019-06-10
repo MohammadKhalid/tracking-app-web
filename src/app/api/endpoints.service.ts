@@ -4,6 +4,7 @@ import { environment } from '../../environments/environment'
 import { BehaviorSubject, Observable } from 'rxjs';
 import * as JWT from 'jwt-decode';
 import { HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Injectable({
 
@@ -14,7 +15,24 @@ export class EndpointsService {
   accessToken: string = localStorage.getItem('token');
   private loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   private userLoggedIn = new BehaviorSubject(false);
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+    private router: Router) { }
+  authorizeUser() {
+    if (this.userToken) {
+      this.setLoggedIn(true);
+      this.router.navigate(['']);
+    }
+    else {
+      if (!(this.router.url == "/login" || this.router.url == "/register")) {
+        this.router.navigate(["login"]);
+      }
+      else {
+        this.router.navigate([this.router.url]);
+
+      }
+      this.setLoggedIn(false);
+    }
+  }
   getAccessToken() {
     return this.accessToken = localStorage.getItem('token');
   }
@@ -47,18 +65,18 @@ export class EndpointsService {
   setLoggedIn(val: boolean) {
     this.userLoggedIn.next(val);
   }
-  Adminlogin(user) {
-    return this.http.post(this.apiUrl + `admin/login`, user);
+  // Adminlogin(user) {
+  //   return this.http.post(this.apiUrl + `admin/login`, user);
 
-  }
+  // }
   logout() {
     // this.loggedIn.next(false);
     localStorage.removeItem('token');
 
   }
-  adminReg(payload) {
-    return this.http.post(this.apiUrl + 'admin/register', payload);
-  }
+  // adminReg(payload) {
+  //   return this.http.post(this.apiUrl + 'admin/register', payload);
+  // }
 
   adduser(payload) {
     return this.http.post(this.apiUrl + 'user/create', payload)

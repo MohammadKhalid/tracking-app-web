@@ -4,6 +4,7 @@ import { FormControl, Validators, FormBuilder, FormGroup } from '@angular/forms'
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { EndpointsService } from 'src/app/api/endpoints.service';
+import { LoginService } from './login.service';
 
 
 
@@ -18,37 +19,29 @@ export class login {
   email: string = '';
   password: any;
   tittleAlert: string = 'please enter valid email';
-  constructor(private toaster: ToastrService, private router: Router, private formbuilder: FormBuilder, private apiservice: EndpointsService) {
+  constructor(private toaster: ToastrService, private router: Router, private formbuilder: FormBuilder, private globalService: EndpointsService, private loginService: LoginService) {
     this.loginForm = this.formbuilder.group({
       email: ['', Validators.compose([Validators.required, Validators.email])],
       password: ['', Validators.required]
     })
   }
   ngOnInit() {
-    if (this.apiservice.userToken) {
-      this.setLoggedIn(true);
-      this.router.navigate([''])
-    }
-    else {
-      this.setLoggedIn(false);
-      this.router.navigate(['login'])
-    }
+    this.globalService.authorizeUser();
   }
   go() {
     this.router.navigate(['/register'])
   }
   // If user is logged in, set value to true
   private setLoggedIn(value: boolean): void {
-    this.apiservice.setLoggedIn(value);
+    this.globalService.setLoggedIn(value);
   }
   login(loginForm) {
-    this.apiservice.Adminlogin(this.loginForm.value)
+    this.loginService.Adminlogin(this.loginForm.value)
       .subscribe((res: any) => {
         console.log(res);
         if (res.code == 200) {
           this.setLoggedIn(true);
-          this.apiservice.setUserToken = res.token;
-          // localStorage.setItem('token', res.token);
+          this.globalService.setUserToken = res.token;
           this.toaster.success('Successfully login');
           this.router.navigate(['']);
         } else {
