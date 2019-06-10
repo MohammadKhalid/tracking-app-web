@@ -5,7 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { EndpointsService } from 'src/app/api/endpoints.service';
 import { DialogService } from 'primeng/api';
-import { AddeditmodelComponent } from './addeditmodel/addeditmodel.component';
+import { AddEditModelComponent } from './addEditModel/addEditModel.component';
 import { TaskService } from '../../task/task.service';
 import { UserService } from '../user.service';
 
@@ -22,16 +22,16 @@ export class view {
   columns = [];
   display: boolean = false;
   constructor(private dialogService: DialogService,
-     private toaster: ToastrService,
-      private globalService: EndpointsService,
-      private userService: UserService,
-      private taskSerive: TaskService,
-       private router: Router,
-        private formbuilder: FormBuilder) { }
+    private toaster: ToastrService,
+    private globalService: EndpointsService,
+    private userService: UserService,
+    private taskSerive: TaskService,
+    private router: Router,
+    private formbuilder: FormBuilder) { }
 
   ngOnInit() {
-      this.globalService.authorizeUser();
-      this. getList();
+    this.globalService.authorizeUser();
+    this.getList();
   }
 
   getList() {
@@ -50,7 +50,7 @@ export class view {
   }
 
   show(user) {
-    const ref = this.dialogService.open(AddeditmodelComponent, {
+    const ref = this.dialogService.open(AddEditModelComponent, {
       data: user,
       width: '40%'
     });

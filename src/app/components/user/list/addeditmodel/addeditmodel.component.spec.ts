@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AddeditmodelComponent } from './addeditmodel.component';
+import { AddeditmodelComponent } from './addEditModel.component';
 
 describe('AddeditmodelComponent', () => {
   let component: AddeditmodelComponent;

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { viewtask } from './viewtask';
+import { ViewTask } from './viewTask';
 import { TaskService } from '../task.service';
 
 
@@ -8,9 +8,9 @@ import { TaskService } from '../task.service';
 @NgModule({
   imports: [RouterModule.forChild([{
     path: '',
-    component: viewtask
+    component: ViewTask
   }])],
   exports: [RouterModule],
   providers: [TaskService]
 })
-export class viewtaskRoutingModule { }
+export class ViewTaskRoutingModule { }

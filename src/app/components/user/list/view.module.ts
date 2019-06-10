@@ -14,14 +14,15 @@ import { DynamicDialogModule } from 'primeng/dynamicdialog';
 
 
 import { view } from './view';
-import { AddeditmodelComponent } from './addeditmodel/addeditmodel.component';
 import { TaskService } from '../../task/task.service';
 import { UserService } from '../user.service';
+import { AddEditModelComponent } from './addEditModel/addEditModel.component';
+// import { AddEditModelComponent } from '../list/addEditModel/addeditmodel.component';
 
 
 
 @NgModule({
-  declarations: [view, AddeditmodelComponent
+  declarations: [view, AddEditModelComponent
   ],
   imports: [
     CommonModule,
@@ -39,6 +40,6 @@ import { UserService } from '../user.service';
 
   ],
   providers: [TaskService, UserService],
-  entryComponents: [AddeditmodelComponent]
+  entryComponents: [AddEditModelComponent]
 })
 export class viewModule { }

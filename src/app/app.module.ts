@@ -17,7 +17,7 @@ import { InputMaskModule } from 'primeng/inputmask';
 import { View } from './components/track/list/view';
 import { EndpointsService } from './api/endpoints.service';
 import { MapComponent } from './components/track/list/map/map.component';
-import { FilterlistComponent } from './components/track/list/filterlist/filterlist.component';
+import { FilterListComponent } from './components/track/list/filterList/filterList.component';
 import {CalendarModule} from 'primeng/calendar';
 import {DropdownModule} from 'primeng/dropdown';
 import {ScrollPanelModule} from 'primeng/scrollpanel'; 
@@ -31,7 +31,7 @@ import { AgmCoreModule } from '@agm/core';
     HomeComponent,
     View,
     MapComponent,
-    FilterlistComponent
+    FilterListComponent
   ],
   imports: [
     BrowserModule,

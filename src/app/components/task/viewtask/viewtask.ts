@@ -2,17 +2,17 @@ import { Component } from '@angular/core';
 
 import { EndpointsService } from 'src/app/api/endpoints.service';
 import { DialogService } from 'primeng/api';
-import { AddeditmodelComponent } from './addeditmodel/addeditmodel.component';
+import { AddEditModelComponent } from './addEditModel/AddEditModel.component';
 import * as moment from 'moment/moment';
 import { TaskService } from '../task.service';
 
 @Component({
-  templateUrl: './viewtask.html',
-  styleUrls: ['./viewtask.css'],
+  templateUrl: './viewTask.html',
+  styleUrls: ['./viewTask.css'],
   providers: [DialogService]
 
 })
-export class viewtask {
+export class ViewTask {
   rangeDates: string;
   users: [];
   view: any = [];
@@ -57,7 +57,7 @@ export class viewtask {
   }
 
   show(user) {
-    const ref = this.dialogService.open(AddeditmodelComponent, {
+    const ref = this.dialogService.open(AddEditModelComponent, {
       data: user,
       width: '40%'
     });

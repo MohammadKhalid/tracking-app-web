@@ -17,21 +17,18 @@ import {InputTextareaModule} from 'primeng/inputtextarea';
 
 
 import {CalendarModule} from 'primeng/calendar';
-
-import { viewtaskRoutingModule } from './viewtask-routing.module';
-import { viewtask } from './viewtask';
-import { AddeditmodelComponent } from './addeditmodel/addeditmodel.component';
+import { ViewTask } from './viewTask';
 import { TaskService } from '../task.service';
-
-
+import { AddEditModelComponent } from './addEditModel/AddEditModel.component';
+import { ViewTaskRoutingModule } from './viewTask-routing.module';
 
 @NgModule({
-  declarations: [viewtask , AddeditmodelComponent
+  declarations: [ViewTask , AddEditModelComponent
   ],
   imports: [
     InputTextareaModule,
     CommonModule,
-    viewtaskRoutingModule,
+    ViewTaskRoutingModule,
     InputMaskModule,
     FileUploadModule,
     InputTextModule,
@@ -46,6 +43,6 @@ import { TaskService } from '../task.service';
     CalendarModule
   ],
   providers:[TaskService],
-  entryComponents:[AddeditmodelComponent]
+  entryComponents:[AddEditModelComponent]
 })
-export class viewtaskModule { }
+export class viewTaskModule { }

@@ -16,11 +16,11 @@ import { AgmCoreModule } from '@agm/core';
 
 import { View } from './view';
 import { MapComponent } from './map/map.component';
-import { FilterlistComponent } from './filterlist/filterlist.component';
 import { TrackService } from '../track.service';
+import { FilterListComponent } from './filterList/filterList.component';
 
 @NgModule({
-  declarations: [View, MapComponent, FilterlistComponent],
+  declarations: [View, MapComponent, FilterListComponent],
   imports: [
     CommonModule,
     ViewRoutingModule,

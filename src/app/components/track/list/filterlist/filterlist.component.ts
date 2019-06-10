@@ -5,7 +5,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   templateUrl: './filterlist.component.html',
   styleUrls: ['./filterlist.component.css']
 })
-export class FilterlistComponent implements OnInit {
+export class FilterListComponent implements OnInit {
   @Input() userAttendance: any
   @Output() attendanceEvent = new EventEmitter<string>();
   constructor() { }

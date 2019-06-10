@@ -9,10 +9,10 @@ import { TaskService } from '../../task.service';
 
 @Component({
   selector: 'app-addeditmodel',
-  templateUrl: './addeditmodel.component.html',
-  styleUrls: ['./addeditmodel.component.css']
+  templateUrl: './addEditModel.component.html',
+  styleUrls: ['./addEditModel.component.css']
 })
-export class AddeditmodelComponent implements OnInit {
+export class AddEditModelComponent implements OnInit {
   addUserform: FormGroup
   constructor(private router: Router,
     private globalServices: EndpointsService,
