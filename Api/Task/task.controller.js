@@ -1,5 +1,5 @@
-const userModel = require('../User/user.model')
-const trackingModel = require('../Tracking/tracking.model')
+const userModel = require('../user/user.model')
+const trackingModel = require('../tracking/tracking.model')
 const taskModel = require('./task.model')
 const { validationResult } = require('express-validator/check');
 const Sequelize = require('sequelize')

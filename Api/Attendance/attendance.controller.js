@@ -1,5 +1,5 @@
 const attendanceModel = require('./attendance.model')
-const trackingModel = require('../Tracking/tracking.model')
+const trackingModel = require('../tracking/tracking.model')
 const sequelize = require('sequelize')
 const Op = sequelize.Op
 const moment = require('moment')

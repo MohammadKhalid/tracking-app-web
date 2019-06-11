@@ -1,5 +1,5 @@
 const { validationResult } = require('express-validator/check');
-const personalNotesModel = require('./personal-notes.model')
+const personalNotesModel = require('./personalNotes.model')
 
 module.exports = {
     saveNotes: async (req,res)=>{

@@ -1,6 +1,6 @@
 const sequelize = require('sequelize');
-const db = require('../../Config/database');
-const userModel = require('../User/user.model')
+const db = require('../../config/database');
+const userModel = require('../user/user.model')
 
 
 const Task = db.define('task', {

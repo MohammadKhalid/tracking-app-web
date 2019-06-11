@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var personalNotesController = require('./personal-notes.controller')
+var personalNotesController = require('./personalNotes.controller')
 const { check } = require('express-validator/check');
 
 router.post('/saveNotes',personalNotesController.saveNotes)

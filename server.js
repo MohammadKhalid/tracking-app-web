@@ -4,14 +4,14 @@ require('dotenv').config()
 const bodyparser = require('body-parser')
 const port = process.env.PORT || 3000
 const cors = require('cors');
-const db = require('./Config/database')
+const db = require('./config/database')
 
-const admin = require('./Api/Admin/admin.routes')
-const user = require('./Api/User/user.routes')
-const attendance = require('./Api/Attendance/attendance.routes')
-const task = require('./Api/Task/task.routes')
-const personal = require('./Api/Personal Notes/personal-notes.routes')
-const tracking = require('./Api/Tracking/tracking.routes')
+const admin = require('./api/admin/admin.routes')
+const user = require('./api/user/user.routes')
+const attendance = require('./api/attendance/attendance.routes')
+const task = require('./api/task/task.routes')
+const personal = require('./api/personalNotes/personalNotes.routes')
+const tracking = require('./api/tracking/tracking.routes')
 
 app.use(bodyparser.json());
 app.use(cors());
