@@ -1,0 +1,118 @@
+.part6
+{
+position: relative;
+}
+
+.pc5
+{
+position: absolute;
+top:100px;
+}
+.part6im1
+{
+    text-align: center !important;
+    margin-left:200px;
+}
+/* .pc5
+{
+margin-left: 00px;
+} */
+
+.hea9
+{
+    font-family: calisto bold ;
+    color:#233148;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+@media only screen and (max-width: 1000px)
+{
+    .im2
+    {
+position: relative;
+top:300px;
+
+    }
+   .ty
+    {
+        /* position: relative;
+        top:300px; */
+        display: none;
+    }
+    .th
+    {
+        position: relative;
+        top:300px;
+        text-align: center;
+        /* margin-left: 200px; */
+    }
+}
+@media only screen and (max-width: 500px)
+{
+    .im2
+    {
+position: relative;
+top:400px;
+
+    }
+   
+}
+
+@media only screen and (min-width: 2300px)
+{
+    .im2
+    {
+    position: absolute;
+/* position: relative; */
+/* top:300px; */
+
+    }
+   .ty
+    {
+        /* position: relative; */
+        /* top:300px; */
+        /* display: none; */
+        text-align: center;
+        left:400px !important;
+
+    }
+    .th
+    {
+        /* position: relative; */
+        /* top:300px; */
+        text-align: center;
+        left:600px !important;
+        /* margin-left: 200px; */
+    }
+}
+
+
+
+@media only screen and (min-width: 1800px)
+{
+    .im2
+    {
+    position: absolute;
+/* position: relative; */
+/* top:300px; */
+
+    }
+   .ty
+    {
+        /* position: relative; */
+        /* top:300px; */
+        /* display: none; */
+        text-align: center;
+        left:150px;
+
+    }
+    .th
+    {
+        /* position: relative; */
+        /* top:300px; */
+        text-align: center;
+        left:400px;
+        /* margin-left: 200px; */
+    }
+}
+

@@ -1,0 +1,33 @@
+.text-right{
+  float: right;
+}
+
+
+
+@media only screen and (min-width: 992px)
+{
+ 
+
+.list
+{
+position: relative;
+bottom: 10px;
+}
+}
+
+
+@media only screen and (max-width: 992px)
+{
+  .search-part-grid
+  {
+    text-align: center;
+  }
+
+}
+
+
+.track-save-btn
+{
+  text-align: center;
+
+}
