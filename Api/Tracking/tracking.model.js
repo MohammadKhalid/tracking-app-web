@@ -1,7 +1,7 @@
 const sequelize = require('sequelize');
-const db = require('../../Config/database');
-const userModel = require('../User/user.model')
-const taskModel = require('../Task/task.model')
+const db = require('../../config/database');
+const userModel = require('../user/user.model')
+const taskModel = require('../task/task.model')
 
 
 const Tracking = db.define('tracking', {

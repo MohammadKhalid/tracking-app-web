@@ -1,5 +1,5 @@
 const trackingModel = require('./tracking.model')
-const attendanceModel = require('../Attendance/attendance.model')
+const attendanceModel = require('../attendance/attendance.model')
 const { validationResult } = require('express-validator/check');
 
 module.exports = {

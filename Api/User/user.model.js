@@ -1,6 +1,6 @@
 const sequelize = require('sequelize');
-const db = require('../../Config/database');
-const adminModel = require('../Admin/admin.model')
+const db = require('../../config/database');
+const adminModel = require('../admin/admin.model')
 
 
 const User = db.define('user', {
