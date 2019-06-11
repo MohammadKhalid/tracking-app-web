@@ -1,0 +1,73 @@
+
+<p-scrollPanel [style]="{ height: '300px'}" styleClass="custom">
+
+
+
+<p-card *ngFor="let user of userAttendance" (click)="sendAttendancetoParent(user)" class="card_body"[style]="{width: '100%'}">
+    <!-- <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
+        quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!</div> -->
+        <div>
+          {{user.id}}
+        <span class="card-atributes">check in:</span>
+        <span class="card-vales">{{user.checkInTime}}</span>
+      </div>
+      <div>
+        <span class="card-atributes">check out:</span>
+        <span class="card-vales">{{user.checkOutTime}}</span>
+       </div>
+       <div>
+        <span class="card-atributes">hours:</span>
+        <span class="card-vales">{{user.date}}</span>
+        </div>
+        <div>
+        <span class="card-atributes">status:</span>
+        <span class="card-vales">{{user.isPresent}}</span>
+        </div>
+</p-card>
+
+<!-- <p-card class="card_body" header="Name" [style]="{width: '200px',border:'1px solid'}">
+  
+        <p class="card-atributes">date</p>
+        <span class="card-vales">31-12-2018</span>
+        <p class="card-atributes">total number of  tasks</p>
+        <span class="card-vales">31-12-2018</span>
+        <p class="card-atributes">check in</p>
+        <span class="card-vales">31-12-2018</span>
+        <p class="card-atributes">check out</p>
+        <span class="card-vales">31-12-2018</span>
+        
+</p-card><p-card class="card_body" header="Name" [style]="{width: '200px',border:'1px solid'}">
+        <p class="card-atributes">date</p>
+        <span class="card-vales">31-12-2018</span>
+        <p class="card-atributes">total number of  tasks</p>
+        <span class="card-vales">31-12-2018</span>
+        <p class="card-atributes">check in</p>
+        <span class="card-vales">31-12-2018</span>
+        <p class="card-atributes">check out</p>
+        <span class="card-vales">31-12-2018</span>
+        
+</p-card><p-card class="card_body" header="Name" [style]="{width: '200px',border:'1px solid'}">
+        <p class="card-atributes">date</p>
+        <span class="card-vales">31-12-2018</span>
+        <p class="card-atributes">total number of  tasks</p>
+        <span class="card-vales">31-12-2018</span>
+        <p class="card-atributes">check in</p>
+        <span class="card-vales">31-12-2018</span>
+        <p class="card-atributes">check out</p>
+        <span class="card-vales">31-12-2018</span>
+        
+</p-card><p-card class="card_body" header="Name" [style]="{width: '200px',border:'1px solid'}">
+
+        <p class="card-atributes">date</p>
+        <span class="card-vales">31-12-2018</span>
+        <p class="card-atributes">total number of  tasks</p>
+        <span class="card-vales">31-12-2018</span>
+        <p class="card-atributes">check in</p>
+        <span class="card-vales">31-12-2018</span>
+        <p class="card-atributes">check out</p>
+        <span class="card-vales">31-12-2018</span>
+        
+</p-card> -->
+
+
+</p-scrollPanel>

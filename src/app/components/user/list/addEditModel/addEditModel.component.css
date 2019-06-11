@@ -1,0 +1,9 @@
+.full-width{
+    width: 100%;
+}
+.text-align-right{
+    text-align: right;
+}
+p-inputmask input{
+    width: 100%!important;
+}
