@@ -1,0 +1,36 @@
+
+<div>
+<div class="box">
+      <h6 class="first">Title</h6>
+      <input id="input" type="text"  placeholder="Title"  [(ngModel)]="title" class="full-width" pInputText>
+    </div>
+
+  
+    <div class="box mt-1" *ngIf="isEdit">
+      <h6 class="first">Assign</h6>
+      <p-dropdown [options]="users"   placeholder="Select a User" optionLabel="firstName" [(ngModel)]="userId"></p-dropdown>
+      <!-- <select class="form-control" [(ngModel)]="userId">
+          <option *ngFor="let user of users" [value]="user.id">{{user.firstName}} {{user.Lastname}}</option>
+        </select>  -->
+         </div>
+    <div class="box mt-1" >
+      <h6 class="first">Description</h6>
+      <textarea [rows]="5"  placeholder="Description" [cols]="60" pInputTextarea [(ngModel)]="description"></textarea>
+    </div>
+    <div class="box">
+        <h6 class="first">Date</h6>
+        <p-calendar  placeholder="Select a Date" dateFormat="yy-mm-dd" [(ngModel)]="date" class="full-width"></p-calendar>
+  
+      </div>
+    <div class="p-grid pt-3 ">
+      <div class="p-col-12 text-align-right ">
+          <button  pButton type="button" [disabled]="(!date || !description || !userId || !title)" [label]="btnTxt" class="ui-button-raised " 
+    (click)="task()"></button>
+      </div>
+    </div>
+  
+  
+</div>
+    
+
+ 
