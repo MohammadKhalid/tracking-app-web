@@ -1,25 +1,25 @@
-<agm-map [latitude]="lat" [fullscreenControl]="true" [fullscreenControlOptions]="screenOptions" [longitude]="lng"
+<!-- <agm-map [latitude]="lat" [fullscreenControl]="true" [fullscreenControlOptions]="screenOptions" [longitude]="lng"
       [zoom]=14 [rotateControl]="true">
 
       <agm-marker *ngIf="marker" [iconUrl]="icon"
-        [latitude]="marker[0]?.Lattitude" [longitude]="marker[0]?.Longitude">
+        [latitude]="marker[0]?.Lattitude" [longitude]="marker[0]?.Longitude"> -->
         <!-- <agm-info-window #infowindow>
           <strong>{{marker[0].description}}</strong>
         </agm-info-window> -->
-      </agm-marker>
+      <!-- </agm-marker>
 
       <agm-polyline strokeColor="red" >
               <agm-polyline-point *ngFor="let show of marker" [latitude]="show.Lattitude" [longitude]="show.Longitude">
               </agm-polyline-point>
             </agm-polyline> 
-      <!-- <agm-marker *ngIf="marker" [iconUrl]="icon" (markerClick)="clickedMarker(infowindow)"  [latitude]="marker[marker.length-1]?.Lattitude" [longitude]="marker[marker.length-1]?.Longitude"
-      > -->
-      <agm-marker [animation]="BOUNCE" *ngIf="marker" [iconUrl]="icon"
-        [latitude]="marker[marker.length-1]?.Lattitude" [longitude]="marker[marker.length-1]?.Longitude">
+      <agm-marker *ngIf="marker" [iconUrl]="icon" (markerClick)="clickedMarker(infowindow)"  [latitude]="marker[marker.length-1]?.Lattitude" [longitude]="marker[marker.length-1]?.Longitude" -->
+       
+      <!-- <agm-marker [animation]="BOUNCE" *ngIf="marker" [iconUrl]="icon"
+        [latitude]="marker[marker.length-1]?.Lattitude" [longitude]="marker[marker.length-1]?.Longitude"> -->
         <!-- <agm-info-window #infowindow>
           <strong>{{marker[marker.length-1]?.description}}</strong>
         </agm-info-window> -->
-      </agm-marker>
+      <!-- </agm-marker> -->
 
 
       <!-- <agm-polyline *ngFor="let show of marker" [editable]="true" >
@@ -29,4 +29,7 @@
     </agm-polyline-point>
 </agm-polyline> -->
 
-    </agm-map>
+    <!-- </agm-map> -->
+
+
+    <p-gmap [options]="options"  [overlays]="overlays"  (onMapReady)="setMap($event)" [style]="{'width':'100%','height':'calc(100vh - 270px)'}" ></p-gmap>

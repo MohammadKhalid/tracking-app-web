@@ -23,6 +23,8 @@ import {DropdownModule} from 'primeng/dropdown';
 import {ScrollPanelModule} from 'primeng/scrollpanel'; 
 import {GMapModule} from 'primeng/gmap';
 import { AgmCoreModule } from '@agm/core';
+import { DragScrollModule } from 'ngx-drag-scroll';
+
 
 
 @NgModule({
@@ -45,6 +47,7 @@ import { AgmCoreModule } from '@agm/core';
     InputMaskModule,
     CalendarModule,
     FileUploadModule,
+    DragScrollModule,
     CardModule,
     DropdownModule,
     ScrollPanelModule,
