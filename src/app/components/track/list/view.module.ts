@@ -18,6 +18,8 @@ import { View } from './view';
 import { MapComponent } from './map/map.component';
 import { TrackService } from '../track.service';
 import { FilterListComponent } from './filterList/filterList.component';
+import { DragScrollModule } from 'ngx-drag-scroll';
+
 
 @NgModule({
   declarations: [View, MapComponent, FilterListComponent],
@@ -30,6 +32,7 @@ import { FilterListComponent } from './filterList/filterList.component';
     ReactiveFormsModule,
     FormsModule,
     TableModule,
+    DragScrollModule,
     PaginatorModule,
     DialogModule,
     DynamicDialogModule,

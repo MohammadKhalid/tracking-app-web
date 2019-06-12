@@ -38,6 +38,7 @@
     "mongoose": "^5.4.5",
     "mssql": "^4.3.0",
     "mysql2": "^1.6.4",
+    "ngx-drag-scroll": "^7.4.3",
     "ngx-toastr": "^10.0.2",
     "node-pre-gyp": "^0.12.0",
     "nodemailer": "^5.1.1",
