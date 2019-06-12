@@ -2,18 +2,36 @@ const { validationResult } = require('express-validator/check');
 const personalNotesModel = require('./personalNotes.model')
 
 module.exports = {
-    saveNotes: async (req,res)=>{
+    saveNotes: async (req, res) => {
         try {
-            let {title,description,userId} = req.body
-            let notes = await personalNotesModel.create({
-                title: title,
-                userId: userId,
-                description: description
+            let { notes } = req.body
+            let userId = notes[0].userId
+            let isExist = await personalNotesModel.count({
+                where: {
+                    userId: userId
+                }
             })
+            let StringNotes = JSON.stringify(notes)
+            console.log(StringNotes)
+            if (isExist == 0) {
+                var notesRes = personalNotesModel.create({
+                    userId: userId,
+                    notes: StringNotes
+                })
+            }else{
+                var notesRes = personalNotesModel.update(
+                    {
+                        notes: StringNotes
+                    },{
+                        where:{
+                            userId: userId
+                        }
+                    })
+            }
             return res.json({
                 code: 200,
-                data: notes,
-                message: 'API failed.'
+                data: notesRes,
+                message: 'Created.'
             });
         } catch (error) {
             return res.json({
@@ -24,17 +42,17 @@ module.exports = {
         }
     },
 
-    getNotes: async (req,res) =>{
+    getNotes: async (req, res) => {
         try {
-            let {userId} = req.params
+            let { userId } = req.params
             let notes = await personalNotesModel.findAll({
-                where:{
+                where: {
                     userId: userId
                 }
             })
             return res.json({
                 code: 200,
-                data: notes,
+                data: notes.pop(),
                 message: 'task'
             });
         } catch (error) {
@@ -46,74 +64,4 @@ module.exports = {
         }
     },
 
-    getNoteById: async (req,res) =>{
-        try {
-            let {taskId} = req.params
-            let notes = await personalNotesModel.findAll({
-                where:{
-                    id: taskId
-                }
-            })
-            return res.json({
-                code: 200,
-                data: notes,
-                message: 'task'
-            });
-        } catch (error) {
-            return res.json({
-                code: 500,
-                data: '',
-                message: 'API failed.'
-            });
-        }
-    },
-
-    deleteNote: async (req, res) =>{
-        try {
-            let {taskId} = req.params
-            let notes = await personalNotesModel.destroy({
-                where:{
-                    id: taskId
-                }
-            })
-            return res.json({
-                code: 200,
-                data: notes,
-                message: 'task'
-            });
-        } catch (error) {
-            return res.json({
-                code: 500,
-                data: '',
-                message: 'API failed.'
-            });
-        }
-    },
-
-    editNotes: async (req,res) =>{
-        try {
-            let {taskId} = req.params
-            let {title,description,userId} = req.body
-            let notes = await personalNotesModel.update(
-                {
-                   title: title,
-                   description: description 
-                },{
-                where:{
-                    id: taskId
-                }
-            })
-            return res.json({
-                code: 200,
-                data: notes,
-                message: 'task'
-            });
-        } catch (error) {
-            return res.json({
-                code: 500,
-                data: '',
-                message: 'API failed.'
-            });
-        }
-    }
 }
