@@ -1,12 +1,12 @@
-
+<!-- 
 <p-scrollPanel [style]="{ height: '300px'}" styleClass="custom">
 
 
 
 <p-card *ngFor="let user of userAttendance" (click)="sendAttendancetoParent(user)" class="card_body"[style]="{width: '100%'}">
-    <!-- <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
+     <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
         quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!</div> -->
-        <div>
+        <!-- <div>
           {{user.id}}
         <span class="card-atributes">check in:</span>
         <span class="card-vales">{{user.checkInTime}}</span>
@@ -23,7 +23,7 @@
         <span class="card-atributes">status:</span>
         <span class="card-vales">{{user.isPresent}}</span>
         </div>
-</p-card>
+</p-card> --> 
 
 <!-- <p-card class="card_body" header="Name" [style]="{width: '200px',border:'1px solid'}">
   
@@ -70,4 +70,24 @@
 </p-card> -->
 
 
-</p-scrollPanel>
+<!-- </p-scrollPanel> -->
+
+
+
+<drag-scroll *ngFor="let user of userAttendance" (click)="sendAttendancetoParent(user)" >
+                <div class="p-grid p-justify-start">
+                    <div class="p-col">
+                        <div class="box">
+                                <p-card header="Simple Card" [style]="{width: '360px'}">
+                                        <div>
+                                            date : {{user.date}}
+                                            Checkin Time : {{checkInTime}}
+                                            checkout Time : {{checkOutTime}}
+                                        </div>
+                                    </p-card>
+                            
+                        </div>
+                    </div>
+                 
+                </div>
+              </drag-scroll>

@@ -13,6 +13,7 @@ declare var google: any;
 })
 export class MapComponent implements OnInit {
   @Input() attendanceRowData: any
+  @Input() isListrender: boolean;
   options: any;
 
   overlays: any[];
@@ -26,12 +27,22 @@ export class MapComponent implements OnInit {
   pointStr: string;
   isCheckout: boolean = false;
   mapCenter: any;
+
   constructor(private trackService: TrackService,
     private toaster: ToastrService,
     private http: HttpClient,
     private globalService: EndpointsService
   ) { }
 
+  getStyle(): object {
+    console.log('getstyle: ' + this.isListrender);
+    if (this.isListrender) {
+      return { width: '100%', height: 'calc(100vh - 420px)' }
+    }
+    else {
+      return { width: '100%', height: 'calc(100vh - 300px)' }
+    }
+  }
   ngOnInit() {
     // if (navigator) {
     //   navigator.geolocation.getCurrentPosition(pos => {
@@ -60,7 +71,7 @@ export class MapComponent implements OnInit {
 
     this.options = {
       // center: new google.maps.LatLng(51.5285582, -0.2416814),
-      center: { lat:36.879466, lng: 30.667648 },
+      center: { lat: 36.879466, lng: 30.667648 },
       zoom: 6
     };
     // this.overlays = [

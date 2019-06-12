@@ -48,11 +48,3 @@ div.scrollmenu a {
 div.scrollmenu a:hover {
   background-color: #777;
 }
-drag-scroll {
-  height: 300px;
-  width: 100%;
-}
-img {
-  height: 50px;
-  width: 50px
-}

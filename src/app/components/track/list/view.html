@@ -24,7 +24,8 @@
             Date
         </div>
         <div class="ui-g-4">
-            <p-calendar [(ngModel)]="date1"  placeholder="Select a Date" selectionMode="range" [readonlyInput]="true"></p-calendar>
+            <p-calendar [(ngModel)]="date1" placeholder="Select a Date" selectionMode="range" [readonlyInput]="true">
+            </p-calendar>
         </div>
     </div>
     <div class="ui-sm-12 ui-md-5 ui-lg-5">
@@ -40,7 +41,8 @@
         </div>
     </div>
     <div class="ui-sm-12 ui-md-2 ui-lg-2">
-        <button pButton type="button" label="Search" (click) = "getAttendance()" class="ui-button-rounded track-save-btn"></button>
+        <button pButton type="button" label="Search" (click)="getAttendance()"
+            class="ui-button-rounded track-save-btn"></button>
 
     </div>
 </div>
@@ -50,16 +52,12 @@
 
 
 <div class="p-grid search-part-grid ">
-    <div class="p-col-12  p-md-4 p-lg-3 p-col-align-center list">
+
+    <div class="p-col-12 p-col-align-center">
         <div class="box">
 
-            <app-filterlist [userAttendance]= "userAttendance" (attendanceEvent)="attendanceEvent($event)"></app-filterlist>
-        </div>
-    </div>
-    <div class="p-col-12 p-md-8 p-lg-9 p-col-align-center">
-        <div class="box">
-
-            <app-map [attendanceRowData] = "attendanceRowData" (mapEvent)="sendMaptoParent()"></app-map>
+            <app-map [isListrender]="isListrender" [attendanceRowData]="attendanceRowData"
+                (mapEvent)="sendMaptoParent()"></app-map>
 
         </div>
 
@@ -68,51 +66,4 @@
 </div>
 
 
-<drag-scroll [scrollbar-hidden]="false">
-    <img drag-scroll-item src="some-url" />
-    <img drag-scroll-item src="some-url" />
-    <img drag-scroll-item src="some-url" />
-    <img drag-scroll-item src="some-url" />
-    <img drag-scroll-item src="some-url" />
-    <img drag-scroll-item src="some-url" />
-    <img drag-scroll-item src="some-url" />
-    <img drag-scroll-item src="some-url" />
-    <img drag-scroll-item src="some-url" />
-    <img drag-scroll-item src="some-url" />
-    <img drag-scroll-item src="some-url" />
-    <img drag-scroll-item src="some-url" />
-    <img drag-scroll-item src="some-url" />
-    <img drag-scroll-item src="some-url" />
-    <img drag-scroll-item src="some-url" />
-    <img drag-scroll-item src="some-url" />
-    <img drag-scroll-item src="some-url" />
-    <img drag-scroll-item src="some-url" />
-    <img drag-scroll-item src="some-url" />
-    <img drag-scroll-item src="some-url" />
-    <img drag-scroll-item src="some-url" />
-    <img drag-scroll-item src="some-url" />
-    <img drag-scroll-item src="some-url" />
-    <img drag-scroll-item src="some-url" />
-    <img drag-scroll-item src="some-url" />
-    <img drag-scroll-item src="some-url" />
-    <img drag-scroll-item src="some-url" />
-    <img drag-scroll-item src="some-url" />
-    <img drag-scroll-item src="some-url" />
-    <img drag-scroll-item src="some-url" />
-    <img drag-scroll-item src="some-url" />
-    <img drag-scroll-item src="some-url" />
-    <img drag-scroll-item src="some-url" />
-    <img drag-scroll-item src="some-url" />
-    <img drag-scroll-item src="some-url" />
-    <img drag-scroll-item src="some-url" />
-    <img drag-scroll-item src="some-url" />
-    <img drag-scroll-item src="some-url" />
-    <img drag-scroll-item src="some-url" />
-  </drag-scroll>
-
-
-      
-
-
-
-   
+<app-filterlist [userAttendance]="userAttendance" (attendanceEvent)="attendanceEvent($event)"></app-filterlist>
