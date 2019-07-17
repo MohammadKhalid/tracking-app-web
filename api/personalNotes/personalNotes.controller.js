@@ -4,8 +4,8 @@ const personalNotesModel = require('./personalNotes.model')
 module.exports = {
     saveNotes: async (req, res) => {
         try {
-            let { notes } = req.body
-            let userId = notes[0].userId
+            let { notes, userId } = req.body
+            // let userId = notes[0].userId
             let isExist = await personalNotesModel.count({
                 where: {
                     userId: userId
