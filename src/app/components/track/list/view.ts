@@ -15,7 +15,8 @@ import { TrackService } from '../track.service';
 export class View {
   @ViewChild(MapComponent)
   mapEvent: MapComponent;
-  attendanceRowData: any
+  attendanceRowData: any;
+  isListrender: boolean = false;
   display: boolean = false;
   users: any = [];
   date1: String
@@ -39,7 +40,10 @@ export class View {
       toDate: moment(this.date1[1]).format('YYYY-MM-DD')
     }
     this.trackService.getAttendance(payload, this.globalService.getAccessToken()).subscribe((res: any) => {
-      this.userAttendance = res.data
+    debugger;
+      res.data.length > 0 ? this.isListrender = true : this.isListrender = false;
+
+      this.userAttendance = res.data;
     })
   }
 

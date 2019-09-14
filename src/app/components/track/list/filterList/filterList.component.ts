@@ -9,7 +9,8 @@ export class FilterListComponent implements OnInit {
   @Input() userAttendance: any
   @Output() attendanceEvent = new EventEmitter<string>();
   constructor() { }
-  ngOnInit() { }
+  ngOnInit() {
+   }
   sendAttendancetoParent(user) {
     this.attendanceEvent.next(user);
   }

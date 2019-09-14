@@ -13,10 +13,7 @@ const personalNotes = db.define('personalNotes', {
     userId:{
         type: sequelize.INTEGER
     },
-    title: {
-        type: sequelize.STRING
-    },
-    description: {
+    notes:{
         type: sequelize.TEXT
     }
 })
