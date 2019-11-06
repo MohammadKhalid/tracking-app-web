@@ -36,7 +36,7 @@
     "jsonwebtoken": "^8.4.0",
     "jwt-decode": "^2.2.0",
     "moment": "^2.24.0",
-    "mongoose": "^5.4.5",
+    "mongoose": "^5.7.5",
     "mssql": "^4.3.0",
     "mysql2": "^1.6.4",
     "ngx-drag-scroll": "^7.4.3",
